@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :speeches
   has_many :payments
   has_many :trainings
-  # has_one_attached :photo, dependent: :destroy
+  has_one_attached :photo, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
