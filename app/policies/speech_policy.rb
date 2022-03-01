@@ -7,6 +7,6 @@ class SpeechPolicy < ApplicationPolicy
   end
 
   def new?
-   true
+    true
   end
 end
