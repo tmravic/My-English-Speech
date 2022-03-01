@@ -1,2 +1,38 @@
-<h1>Recording Studio</h1>
-<p>Find me in app/views/speeches/new.html.erb</p>
+<div id="recording-studio-body">
+  <div class="container">
+    <div class="row">
+      <h1>Recording Studio</h1>
+      <h2>Let your voice be heard</h2>
+    </div>
+    <div class="row">
+      <p>@training.speech.title</p>
+      <p>by @training.speech.user</p>
+    </div>
+    <div class="row">
+      <div class="col col-md-4">
+        <p>Transcript</p>
+        <div class="entry">Speech transcript here</div>
+        <hr>
+        <p>Student's notes</p>
+        <div class="entry">Student's note for teacher here</div>
+      </div>
+      <div class="col col-md-4">
+        <div class="row">
+          <i class="fas fa-microphone-alt big-icon"></i>
+        </div>
+      </div>
+      <div class="col col-md-4">
+        <p>Playbox</p>
+        <div class="row playbox">
+          <i class="fas fa-play-circle medium-icon"></i>
+          <h3>00:10</h3>
+          <hr id="thicc">
+          <div class="d-grid gap-2">
+            <button class="btn btn-danger" type="button">Stop</button>
+            <button class="btn btn-secondary" type="button">Stop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

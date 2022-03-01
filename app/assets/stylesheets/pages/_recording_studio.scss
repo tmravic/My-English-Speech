@@ -1,0 +1,30 @@
+#recording-studio-body {
+  background-color: #888888;
+  h1, h2, h3, p {
+    text-align: center;
+  }
+  i {
+    text-align: center;
+  }
+  .big-icon {
+    font-size: 8rem;
+  }
+  .medium-icon {
+    font-size: 4rem;
+  }
+  .entry {
+    border: 1px solid black;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+  }
+  .playbox {
+    border: 1px solid black;
+    background-color: white;
+    padding: 60px 20px;
+    margin: 20px;
+  }
+  #thicc {
+    border: 5px solid grey;
+  }
+}
