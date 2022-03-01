@@ -259,7 +259,11 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
+<<<<<<< HEAD
   x86_64-darwin-20
+=======
+  arm64-darwin-20
+>>>>>>> e54463766cce8469d2379cf035fcb7fb22d9fc8d
   x86_64-linux
 
 DEPENDENCIES
