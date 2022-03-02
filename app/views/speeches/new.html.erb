@@ -16,26 +16,30 @@
           <hr>
           <%= f.input :notes %>
         </div>
-        <div class="col col-md-4">
+        <div class="col col-md-4" data-controller="recording">
           <div class="row">
-            <i class="fas fa-microphone-alt big-icon"></i>
+            <%# <i class="fas fa-microphone-alt big-icon"></i> %>
+            <button data-action="click->recording#clickit" class="fas fa-microphone-alt big-icon" id="record-button" data-recording-target="start-recording" type="button"></button>
             <div class="col">
               <h3>00:10</h3>
               <div class="d-grid gap-2">
-                <button class="btn btn-danger" type="button">Stop</button>
+                <button data-action="click->recording#clickit" class="btn btn-danger stop" type="button">Stop</button>
+                <section class="sound-clips">
+                </section>
                 <%= link_to "Back Home", root_path, class: "btn btn-secondary" %>
               </div>
             </div>
           </div>
         </div>
-        <div class="col col-md-4">
+        <div class="col col-md-4" data-controller="playback">
           <p>Playbox</p>
           <div class="row playbox">
             <i class="fas fa-play-circle medium-icon"></i>
             <h3>00:10</h3>
             <hr id="thicc">
             <div class="d-grid gap-2">
-              <button class="btn btn-danger" type="button">Stop</button>
+              <button data-action="click->playback#clickit" class="btn btn-danger" type="button">Stop</button>
+              <button data-action="click->playback#clickit" class="btn btn-info" type="button">Reset</button>
               <%= f.button :submit, "Upload", class: "btn btn-secondary" %>
             </div>
           </div>
