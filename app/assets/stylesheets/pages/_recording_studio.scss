@@ -29,7 +29,7 @@
   }
 }
 
-#record-button {
+.audio-button {
   background-color: rgba(0,0,0,0);
   padding: 0;
   border-width: 0px;
@@ -38,6 +38,6 @@
   border-image: none;
 }
 
-#record-button:hover {
+.audio-button:hover {
   color: #1d1d1d;
 }
