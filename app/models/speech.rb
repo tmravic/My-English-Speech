@@ -1,7 +1,7 @@
 class Speech < ApplicationRecord
   belongs_to :user
   belongs_to :training
-  # has_one_attached :audio, dependent: :destroy
+  has_one_attached :audio, dependent: :destroy
 
   # callback
   before_validation :create_training
