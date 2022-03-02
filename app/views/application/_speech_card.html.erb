@@ -1,7 +1,7 @@
 <div class="card-product my-3">
   <img src="https://www.nicepng.com/png/full/131-1314805_radio-spot-icon-mike-icons.png" />
   <div class="card-product-infos">
-    <a href="http://[::1]:3000"></a>
+    <%= link_to '', speech_path(speech) %>
     <h2>Title : <%= speech.title %></h2>
     <p>Teacher : <%= speech.user.first_name %> <%= speech.user.last_name %></p>
     <p>Recording time : </p>

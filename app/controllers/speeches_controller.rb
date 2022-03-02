@@ -8,6 +8,11 @@ class SpeechesController < ApplicationController
     authorize @speech
   end
 
+  def show
+    @speech = Speech.find(params[:id])
+    authorize @speech
+  end
+
   def create
     @speech = Speech.new(speech_params)
     @speech.user = current_user

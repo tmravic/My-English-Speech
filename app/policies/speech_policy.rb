@@ -10,6 +10,10 @@ class SpeechPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    record.user == user || user.teacher?
+  end
+
   def create?
     true
   end
