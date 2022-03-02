@@ -1,2 +1,8 @@
-<h1>Speeches#index</h1>
-<p>Find me in app/views/speeches/index.html.erb</p>
+<h1 class="text-center mt-3">Your speech list</h1>
+<div class="container">
+<% @speeches.each do |speech| %>
+  <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
+  <%= render 'speech_card', speech: speech %>
+  <%# </div> %>
+<% end %>
+</div>

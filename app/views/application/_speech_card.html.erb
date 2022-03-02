@@ -1,0 +1,16 @@
+<div class="card-product my-3">
+  <img src="https://www.nicepng.com/png/full/131-1314805_radio-spot-icon-mike-icons.png" />
+  <div class="card-product-infos">
+    <a href="http://[::1]:3000"></a>
+    <h2>Title : <%= speech.title %></h2>
+    <p>Teacher : <%= speech.user.first_name %> <%= speech.user.last_name %></p>
+    <p>Recording time : </p>
+  </div>
+  <div class="card-product-infos-transcript">
+    <h2>Transcript</h2>
+    <%= speech.transcript %>
+  </div>
+  <div class="card-product-infos-avatar">
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar" />
+  </div>
+</div>
