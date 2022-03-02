@@ -1,42 +1,33 @@
 <div id="recording-studio-body">
   <div class="container">
-    <div class="row">
-      <h1>Recording Studio</h1>
-    </div>
+    <h1>Recording Studio</h1>
     <%= simple_form_for @speech do |f| %>
       <div class="row">
-        <div class="col col-md-4 offset-md-4">
+        <div class="col col-md-5 offset-md-1 ">
           <%= f.input :title %>
           <p>by @training.speech.user</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-md-4">
           <%= f.input :transcript %>
-          <hr>
           <%= f.input :notes %>
         </div>
-        <div class="col col-md-4">
+        <div class="col col-md-5 offset-md-1" data-controller="recording">
           <div class="row">
-            <i class="fas fa-microphone-alt big-icon"></i>
+            <button data-action="click->recording#record" class="fas fa-microphone-alt big-icon audio-button" data-recording-target="start_recording" type="button"></button>
+            <button data-action="click->recording#stop_recording" class="fas fa-assistive-listening-systems d-none big-icon audio-button" data-recording-target="ear" type="button"></button>
+            <button data-action="click->recording#record" class="fas fa-play-circle d-none big-icon audio-button" data-recording-target="start_playback" type="button"></button>
             <div class="col">
               <h3>00:10</h3>
               <div class="d-grid gap-2">
-                <button class="btn btn-danger" type="button">Stop</button>
+                <button class="btn btn-danger stop d-none"
+                data-action="click->recording#stop_recording"
+                  data-recording-target="stop_recording" type="button">Stop Recording</button>
+                <button class="btn btn-danger d-none" type="button"
+                  data-recording-target="stop_playback">Stop Playback</button>
+                <button class="btn btn-info d-none" type="button"
+                  data-action="click->recording#reset"
+                  data-recording-target="reset_playback">Reset</button>
+                <%= f.button :submit, "Upload", class: "btn btn-secondary d-none", data: { controller: 'recording', action: 'click->recording#record' } %>
                 <%= link_to "Back Home", root_path, class: "btn btn-secondary" %>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col col-md-4">
-          <p>Playbox</p>
-          <div class="row playbox">
-            <i class="fas fa-play-circle medium-icon"></i>
-            <h3>00:10</h3>
-            <hr id="thicc">
-            <div class="d-grid gap-2">
-              <button class="btn btn-danger" type="button">Stop</button>
-              <%= f.button :submit, "Upload", class: "btn btn-secondary" %>
             </div>
           </div>
         </div>

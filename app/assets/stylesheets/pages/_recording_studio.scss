@@ -28,3 +28,16 @@
     border: 5px solid grey;
   }
 }
+
+.audio-button {
+  background-color: rgba(0,0,0,0);
+  padding: 0;
+  border-width: 0px;
+  border-style: none;
+  border-color: none;
+  border-image: none;
+}
+
+.audio-button:hover {
+  color: #1d1d1d;
+}
