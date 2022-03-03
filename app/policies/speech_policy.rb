@@ -2,12 +2,17 @@ class SpeechPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      user.speeches
+      scope.all
+      # scope.where(user: user)
     end
   end
 
+  def index?
+    true
+  end
+
   def new?
-    record.user == user || user.teacher?
+    true
   end
 
   def show?
