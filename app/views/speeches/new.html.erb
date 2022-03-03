@@ -4,6 +4,9 @@
     <%= simple_form_for @speech do |f| %>
       <div class="row">
         <div class="col col-md-5 offset-md-1 ">
+          <% if current_user.teacher? %>
+            <h3 class="text-danger">Correcting this user's speech</h3>
+          <% end %>
           <%= f.input :title %>
           <p>by @training.speech.user</p>
           <%= f.input :transcript %>

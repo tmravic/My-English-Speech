@@ -17,9 +17,15 @@ class SpeechesController < ApplicationController
   def create
     @speech = Speech.new(speech_params)
     @speech.user = current_user
+    @training = Training.new
     authorize @speech
     # byebug
     if @speech.save
+      if @speech.training.blank?
+        @speech.training = @training
+      else
+        #
+      end
       redirect_to root_path, notice: 'Your speech was saved successfully'
     else
       render :new, notice: 'Please try again, your speech could not be saved'
