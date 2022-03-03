@@ -150,10 +150,6 @@ GEM
     msgpack (1.4.5)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.3-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.3-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -284,15 +280,6 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
-<<<<<<< HEAD
-  x86_64-darwin-20
-=======
-  arm64-darwin-20
-<<<<<<< HEAD
-  x86_64-darwin-20
-=======
->>>>>>> e54463766cce8469d2379cf035fcb7fb22d9fc8d
->>>>>>> 5d7b7e4830340d56e415016477778c1bc98d4f56
   x86_64-linux
 
 DEPENDENCIES
