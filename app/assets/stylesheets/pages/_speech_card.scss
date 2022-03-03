@@ -4,8 +4,8 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
 }
 
 .card-product img {
@@ -28,16 +28,11 @@
   margin-top: 8px;
 }
 
-
-.card-product .card-product-infos {
+.card-product .flex-container {
   padding: 16px;
 }
 
-.card-product .card-product-infos-avatar {
-  padding: 16px;
-  flex-grow: 0;
-  .avatar{
-    width: 60px;
-    border-radius: 50%;
-  }
+.card-product .avatar {
+  width: 80px;
+  border-radius: 50%;
 }
