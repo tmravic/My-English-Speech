@@ -4,10 +4,10 @@ class Speech < ApplicationRecord
   has_one_attached :audio, dependent: :destroy
 
   # callback
-  before_validation :create_training
+  # before_validation :create_training
 
-  def create_training
-    training = Training.create(user: user)
-    self.training = training
-  end
+  # def create_training
+  #   training = Training.create(user: user)
+  #   self.training = training
+  # end
 end
