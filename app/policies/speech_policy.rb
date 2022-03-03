@@ -7,7 +7,7 @@ class SpeechPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    record.user == user || user.teacher?
   end
 
   def show?

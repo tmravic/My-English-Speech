@@ -1,0 +1,60 @@
+<html>
+  <body>
+    <head>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    </head>
+    <div class="container text-start mt-3">
+      <h1><%= @speech.title %></h1>
+    </div>
+    <div class="text-end justify-content-flex-end">
+      <%= link_to "Back", "http://localhost:3000/speeches", class: "btn btn-gradient" %>
+      <%= link_to "Record", "http://localhost:3000/speeches/new", class: "btn btn-gradient" %>
+    </div>
+    <div class="flex-container d-flex justify-content-around text-center mt-3">
+      <div class="card-trip">
+        <div class="flex-item">
+          <h2>Speech</h2>
+        </div>
+      </div>
+      <div class="card-trip">
+        <div class="flex-item">
+          <h2>Transcript <i class="fas fa-comment"></i></h2>
+          <div class="contents text-start">
+            <p><%= @speech.transcript %></p>
+          </div>
+        </div>
+      </div>
+      <div class="card-trip">
+        <div class="flex-item">
+          <h2>Note <i class="fas fa-book-open"></i></h2>
+          <div class="contents text-start">
+            <p><%= @speech.notes %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex-container d-flex justify-content-around text-center mt-3">
+      <div class="card-trip">
+        <div class="flex-item">
+          <h2>Speech</h2>
+        </div>
+      </div>
+      <div class="card-trip">
+        <div class="flex-item">
+          <h2>Transcript <i class="fas fa-comment"></i></h2>
+          <div class="contents text-start">
+            <p><%= @speech.transcript %></p>
+          </div>
+        </div>
+      </div>
+      <div class="card-trip">
+        <div class="flex-item">
+          <h2>Note <i class="fas fa-book-open"></i></h2>
+          <div class="contents text-start">
+            <p><%= @speech.notes %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
