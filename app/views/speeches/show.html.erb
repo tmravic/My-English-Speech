@@ -7,9 +7,11 @@
       <%= link_to "Back to my speeches", speeches_path, class: "btn btn-secondary p-3 my-2" %>
     </div>
     <div class="row my-3" id="student_speech">
+      <h2 class="text-center">Your speech</h2>
       <%= render 'student_speech', speech: @speech %>
     </div>
     <div class="row my-3" id="student_speech">
+      <h2 class="text-center">Teacher's speech</h2>
       <%= render 'student_speech', speech: @speech %>
     </div>
     <div class="row justify-content-end">
