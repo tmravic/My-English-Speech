@@ -11,26 +11,14 @@
         </div>
         <div class="col col-md-5 offset-md-1" data-controller="recording">
           <div class="row">
-
-
             <button data-action="click->recording#record" class="my-2 fas fa-microphone-alt big-icon audio-button" data-recording-target="start_recording" type="button"></button>
-
-
             <button data-action="click->recording#stop_recording" class="my-2 fas fa-assistive-listening-systems d-none big-icon audio-button" data-recording-target="ear" type="button"></button>
-
-
             <button data-action="click->recording#record" class="my-2 far fa-check-circle d-none big-icon audio-button text-success" data-recording-target="start_playback" type="button"></button>
-
-
             <div class="col">
-
               <article class="clip my-2 d-flex justify-content-center d-none"
               data-recording-target="clip">
-
                 <audio controls src=""></audio>
-
               </article>
-
               <div class="d-grid gap-2">
                 <button class="btn btn-danger stop d-none"
                 data-action="click->recording#stop_recording"
@@ -40,7 +28,6 @@
                 <button class="btn btn-info d-none" type="button"
                   data-action="click->recording#reset"
                   data-recording-target="reset_playback">Reset</button>
-
                 <%= f.button :submit, "Upload", class: "btn btn-primary d-none",
                 data: { recording_target: 'upload', action: "click->recording#upload" } %>
                 <%# <%= f.input :file, as: :file, class: "d-none" %>
@@ -49,12 +36,6 @@
             </div>
           </div>
         </div>
-      <% end %>
-      <% @speeches.each do |speech| %>
-      <%= speech.title %>
-
-        <audio controls src="https://res.cloudinary.com/dqco8z2dj/video/upload/<%= Rails.env %>/<%= speech.audio.key %>.webm"> </audio>
-
       <% end %>
     </div>
   </div>
