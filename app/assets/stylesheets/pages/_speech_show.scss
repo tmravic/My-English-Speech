@@ -1,20 +1,25 @@
 #one-speech-body {
   background-color: #DDD;
-  height: 100vh;
+  height: 160vh;
 }
 
 #title-box {
   background-color: rgb(56, 55, 55);
   color: white;
-  width: 20%;
-  text-align: center;
+  // text-align: center;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .text-end{
   margin: 40px;
 }
 
-#student_speech {
-
+.speech_box {
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#back-to-my-speeches {
+  text-align: right;
 }
