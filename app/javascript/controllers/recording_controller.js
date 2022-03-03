@@ -1,16 +1,38 @@
 import { Controller } from "stimulus"
+import Rails from "@rails/ujs";
+let mediaRecorder = null;
 
 export default class extends Controller {
-  static targets = [ "start_recording", "stop_recording", 'ear', "start_playback", "stop_playback", "reset_playback", "upload" ]
+  static targets = [ "start_recording", "stop_recording", 'ear', "clip", "start_playback", "reset_playback", "upload" ]
   isRecording = false;
-  clip = null;
+  // clip = null;
+
+  initialize() {
+    this.clip = null;
+  }
 
   connect() {
     console.log("Recording controller standing by");
-    console.log(`Recording: ${this.isRecording}`)
-  }
+    console.log(`Recording: ${this.isRecording}`);
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      console.log('getUserMedia supported.');
+      const stopButton = this.stop_recordingTarget;
+      const audioPlayer = this.clipTarget.children[0];
 
-  // pickUpAudio()
+      try {
+        navigator.mediaDevices.getUserMedia (
+          {
+            audio: true
+          })
+          .then(function(stream) {
+            mediaRecorder = new MediaRecorder(stream);
+          })
+      }
+      catch(err) {
+        console.log('The following getUserMedia error occurred: ' + err);
+      }
+    }
+  }
 
   record() {
     // Not recording and no clip
@@ -19,7 +41,23 @@ export default class extends Controller {
       this.stop_recordingTarget.classList.remove("d-none")
       this.earTarget.classList.remove("d-none")
       this.start_recordingTarget.classList.add("d-none")
-      // pickUpAudio()
+
+
+      mediaRecorder.start();
+      const audioChunks = [];
+      mediaRecorder.ondataavailable = e => {
+        // console.log("Event data: ", e);
+        audioChunks.push(e.data);
+      }
+      mediaRecorder.addEventListener("stop", () => {
+        const audioBlob = new Blob(audioChunks, { type: "video/webm" });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+        const audioPlayer = this.clipTarget.children[0];
+        this.clip = audioBlob;
+        console.log(this.clip);
+        audioPlayer.src = audioUrl
+      });
     }
     console.log(`Recording: ${this.isRecording}`)
   }
@@ -28,56 +66,48 @@ export default class extends Controller {
     // Recording but no clip saved yet
     if(this.isRecording === true && !this.clip) {
 
-      this.clip = "recorded clip"
-
+      // this.clip = "recorded clip"
+      console.log("Media Recorder Stop!", mediaRecorder.state);
+      setTimeout(() => {
+        mediaRecorder.stop();
+      }, 500);
       this.earTarget.classList.add("d-none")
       this.start_playbackTarget.classList.remove("d-none")
       this.stop_recordingTarget.classList.add("d-none")
-      this.stop_playbackTarget.classList.remove("d-none")
+      this.uploadTarget.classList.remove("d-none")
       this.reset_playbackTarget.classList.remove("d-none")
+      this.clipTarget.classList.remove("d-none")
       this.isRecording = false;
     }
+    console.log(`Recording: ${this.isRecording}`)
+  }
+
+  upload(ev) {
+    const form = document.querySelector("#new_speech");
+    const clipUpload = this.clip;
+
+      ev.preventDefault()
+      const formData = new FormData(form);
+      const fileName = formData.get("speech[title]")
+      console.log("Upload this clip ", clipUpload);
+      console.log(formData.get("speech[title]"));
+      formData.append('speech[audio]', clipUpload, `${fileName}.webm`)
+      console.log(formData.get("speech[audio]"));
+      Rails.ajax({
+        url: "/speeches",
+        type: "post",
+        data: formData
+      })
   }
 
   reset() {
     // Not recording because finished and clip save
     this.clip = null;
+    console.log("Media Recorder what's happening?", mediaRecorder.state);
     this.start_recordingTarget.classList.remove("d-none")
     this.start_playbackTarget.classList.add("d-none")
-    this.stop_playbackTarget.classList.add("d-none")
+    this.clipTarget.classList.add("d-none")
     this.reset_playbackTarget.classList.add("d-none")
+    this.uploadTarget.classList.add("d-none")
   }
-
-  // 1. Get the clickImageHandler to go from Microphone -> Stop button -> Play button
-
-  // 2. Add resetHandler,
-
-  // 3. Make sure clickImageHandler can now go:
-  // Mic -> Stop -> Play (click resetButton) -> Mic
-
-  // 4. Actual mediaStream handling using the recording api
-  // (handle chunks etc.)
-
-
-  // If we don't have an audio clip, only show the mic
-  // Only show stop button when mid-recording
-  // If we have a clip, hide the mic and stop, show reset/play/upload
-  // isRecording = false
-  // clip = null
-
-  // isRecording = true
-  // clip = null
-
-  // isRecording = false && clip
-  // clip { MediaStream thing... }
-  // Show playback buttons
-
-  // if isRecording = false && !clip
-  // show just the record button
-
-  // else if (!clip)
-  // Stop recording
-
-  // else
-  // Play back the recording
 }

@@ -6,12 +6,14 @@ class SpeechesController < ApplicationController
   def new
     @speech = Speech.new
     authorize @speech
+    @speeches = Speech.all ### REMOVE THIS AFTER TESTING
   end
 
   def create
     @speech = Speech.new(speech_params)
     @speech.user = current_user
     authorize @speech
+    # byebug
     if @speech.save
       redirect_to root_path, notice: 'Your speech was saved successfully'
     else
@@ -25,7 +27,7 @@ class SpeechesController < ApplicationController
   private
 
   def speech_params
-    params.require(:speech).permit(:title, :length, :notes, :transcript)
+    params.require(:speech).permit(:title, :length, :notes, :transcript, :audio)
   end
 
 end
