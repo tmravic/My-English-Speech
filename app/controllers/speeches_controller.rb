@@ -11,6 +11,7 @@ class SpeechesController < ApplicationController
 
   def show
     @speech = Speech.find(params[:id])
+    # @teacher_speech = Speech.find(params[:id])
     authorize @speech
   end
 

@@ -1,0 +1,15 @@
+<h2 class="text-center">Your speech</h2>
+<div class="col col-md-4 text-center">
+  <p>Speech audio</p>
+  <div class="d-flex align-items-center">
+    <audio controls src="https://res.cloudinary.com/dqco8z2dj/video/upload/<%= Rails.env %>/<%= @speech.audio.key %>.webm"> </audio>
+  </div>
+</div>
+<div class="col col-md-4 text-center">
+  <p>Transcript</p>
+  <div class="p-5 my-2 bg-white"><%= @speech.transcript %></div>
+</div>
+<div class="col col-md-4 text-center">
+  <p>Notes</p>
+  <div class="p-5 my-2 bg-white"><%= @speech.notes %></div>
+</div>
