@@ -1,16 +1,20 @@
-<div class="card-product my-3">
+<div class="card-product flex-container my-5">
   <img src="https://www.nicepng.com/png/full/131-1314805_radio-spot-icon-mike-icons.png" />
-  <div class="card-product-infos">
-    <%= link_to 'check', speech_path(speech) %>
-    <strong><%= speech.title %></strong>
-    <p>Teacher : <%= speech.user.first_name %> <%= speech.user.last_name %></p>
-    <p>Recording time : </p>
+  <div class="flex-item">
+    <a href="http://[::1]:3000/speeches/<%= speech.id %>" class="btn btn-primaly">
+      <h2>Title</h2>
+    </a>
+    <p><%= speech.title %></p>
   </div>
-  <div class="card-product-infos-transcript">
-    <h2>Transcript</h2>
-    <%= speech.transcript %>
+  <div class="flex-item">
+    <h2>Teacher</h2>
+    <p><%= speech.user.first_name %> <%= speech.user.last_name %></p>
   </div>
-  <div class="card-product-infos-avatar">
+  <div class="flex-item">
+    <h2>Recording time</h2>
+    <p>00:10</p>
+  </div>
+  <div class="flex-item">
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar" />
   </div>
 </div>
