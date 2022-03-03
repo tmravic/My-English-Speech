@@ -6,7 +6,6 @@ class SpeechesController < ApplicationController
   def new
     @speech = Speech.new
     authorize @speech
-    @speeches = Speech.all ### REMOVE THIS AFTER TESTING
   end
 
   def show
