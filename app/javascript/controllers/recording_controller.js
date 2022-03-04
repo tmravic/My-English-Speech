@@ -2,6 +2,7 @@ import { Controller } from "stimulus"
 import Rails from "@rails/ujs";
 let mediaRecorder = null;
 
+
 export default class extends Controller {
   static targets = [ "start_recording", "stop_recording", 'ear', "clip", "start_playback", "reset_playback", "upload" ]
   isRecording = false;
@@ -9,6 +10,9 @@ export default class extends Controller {
 
   initialize() {
     this.clip = null;
+    this.startTime = 0;
+    this.stopTime = 0;
+    this.totalMilliseconds = 0;
   }
 
   connect() {
@@ -44,6 +48,8 @@ export default class extends Controller {
 
 
       mediaRecorder.start();
+      console.log("Start time", this.startTime);
+      this.startTime = Date.now();
       const audioChunks = [];
       mediaRecorder.ondataavailable = e => {
         // console.log("Event data: ", e);
@@ -52,7 +58,7 @@ export default class extends Controller {
       mediaRecorder.addEventListener("stop", () => {
         const audioBlob = new Blob(audioChunks, { type: "video/webm" });
         const audioUrl = URL.createObjectURL(audioBlob);
-        const audio = new Audio(audioUrl);
+        // const audio = new Audio(audioUrl);
         const audioPlayer = this.clipTarget.children[0];
         this.clip = audioBlob;
         console.log(this.clip);
@@ -70,7 +76,12 @@ export default class extends Controller {
       console.log("Media Recorder Stop!", mediaRecorder.state);
       setTimeout(() => {
         mediaRecorder.stop();
+        this.stopTime = Date.now();
+        console.log("Stop time", this.stopTime);
+        this.totalMilliseconds = this.stopTime - this.startTime;
+        console.log("Total milliseconds: ", this.totalMilliseconds);
       }, 500);
+
       this.earTarget.classList.add("d-none")
       this.start_playbackTarget.classList.remove("d-none")
       this.stop_recordingTarget.classList.add("d-none")
@@ -93,6 +104,10 @@ export default class extends Controller {
       console.log(formData.get("speech[title]"));
       formData.append('speech[audio]', clipUpload, `${fileName}.webm`)
       console.log(formData.get("speech[audio]"));
+      // formData.append('length', this.totalMilliseconds)
+      // console.log(formData.get("length"));
+      console.log(formData);
+
       Rails.ajax({
         url: "/speeches",
         type: "post",
