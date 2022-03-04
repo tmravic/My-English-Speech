@@ -1,3 +1,25 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+
 .centered-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -260,31 +282,31 @@
   margin-left: 0px;
   padding: 12px 30px;
   background-color: #fff;
-  color: #000;
-  font-size: 14px;
+  color: white;
   font-weight: 700;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
+  border-radius: 200px;
 }
 
 .primary-hero-button:hover {
   background-color: #c4c4c4;
+  border: 1px solid black;
 }
 
 .secondary-hero-button {
   margin-bottom: 0px;
   padding: 12px 30px;
-  border: 0px solid #000;
-  background-color: hsla(0, 0%, 100%, 0.2);
   color: #fff;
   font-weight: 700;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
+  border-radius: 200px;
+  border: 1px solid white;
 }
 
 .secondary-hero-button:hover {
   background-color: #fff;
   color: #000;
+  border: 1px solid black;
 }
 
 .hero-buttons {
@@ -522,4 +544,8 @@
   .about-content-wrapper {
     margin-left: 0px;
   }
+}
+
+.container-home{
+  display: flex;
 }
