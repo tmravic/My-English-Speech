@@ -1,24 +1,27 @@
 <div id="one-speech-body">
   <div class="container">
-    <div class="d-flex justify-content-between">
-      <div id="title-box">
-        <h1>Title: <%= @speech.title %></h1>
+    <div class="row justify-content-between align-items-center">
+      <div class="col col-md-4">
+        <div class="my-2 p-1 overflow-auto w-100" id="title-box">
+          <h2>Title: <%= @speech.title %></h2>
+        </div>
       </div>
-      <%= link_to "Back to my speeches", speeches_path, class: "btn btn-secondary p-3 my-2" %>
-    </div>
-    <div class="row my-3" id="student_speech">
-      <h2 class="text-center">Your speech</h2>
-      <%= render 'student_speech', speech: @speech %>
-    </div>
-    <div class="row my-3" id="student_speech">
-      <h2 class="text-center">Teacher's speech</h2>
-      <%= render 'student_speech', speech: @speech %>
-    </div>
-    <div class="row justify-content-end">
-      <div class="col col-md-4"></div>
-      <div class="col col-md-4"></div>
-      <div class="col col-md-4 justify-content-between">
+      <div class="col col-md-4 text-center">
+        <% if current_user.teacher? %>
+          <form action="/speeches/new">
+            <input class="d-none" type="text" name="training" value=<%= @speech.training.id %>>
+            <button class="btn btn-info p-3 my-2" type="submit">Correct speech</button>
+          </form>
+        <% end %>
+      </div>
+      <div class="col col-md-4" id="back-to-my-speeches">
+        <%= link_to "Back to my speeches", speeches_path, class: "btn btn-secondary p-3 my-2" %>
       </div>
     </div>
+    <% @speech.training.speeches.each do |speech| %>
+      <div class="row my-4 p-4 speech_box" >
+        <%= render 'user_speech', speech: speech %>
+      </div>
+    <% end %>
   </div>
 </div>
