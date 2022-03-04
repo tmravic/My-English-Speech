@@ -30,6 +30,7 @@ export default class extends Controller {
           })
           .then(function(stream) {
             mediaRecorder = new MediaRecorder(stream);
+            console.log("What is happening?", mediaRecorder);
           })
       }
       catch(err) {
