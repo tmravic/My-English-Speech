@@ -1,6 +1,5 @@
 import { Controller } from "stimulus"
 import Rails from "@rails/ujs";
-let mediaRecorder = null;
 
 
 export default class extends Controller {
@@ -13,9 +12,10 @@ export default class extends Controller {
     this.startTime = 0;
     this.stopTime = 0;
     this.totalMilliseconds = 0;
+    this.mediaRecorder = null;
   }
 
-  connect() {
+  async connect() {
     console.log("Recording controller standing by");
     console.log(`Recording: ${this.isRecording}`);
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -24,14 +24,12 @@ export default class extends Controller {
       const audioPlayer = this.clipTarget.children[0];
 
       try {
-        navigator.mediaDevices.getUserMedia (
+        const stream = await navigator.mediaDevices.getUserMedia (
           {
             audio: true
           })
-          .then(function(stream) {
-            mediaRecorder = new MediaRecorder(stream);
-            console.log("What is happening?", mediaRecorder);
-          })
+          this.mediaRecorder = new MediaRecorder(stream);
+          console.log("What is happening?", this.mediaRecorder);
       }
       catch(err) {
         console.log('The following getUserMedia error occurred: ' + err);
@@ -48,15 +46,15 @@ export default class extends Controller {
       this.start_recordingTarget.classList.add("d-none")
 
 
-      mediaRecorder.start();
+      this.mediaRecorder.start();
       console.log("Start time", this.startTime);
       this.startTime = Date.now();
       const audioChunks = [];
-      mediaRecorder.ondataavailable = e => {
+      this.mediaRecorder.ondataavailable = e => {
         // console.log("Event data: ", e);
         audioChunks.push(e.data);
       }
-      mediaRecorder.addEventListener("stop", () => {
+      this.mediaRecorder.addEventListener("stop", () => {
         const audioBlob = new Blob(audioChunks, { type: "video/webm" });
         const audioUrl = URL.createObjectURL(audioBlob);
         // const audio = new Audio(audioUrl);
@@ -74,9 +72,9 @@ export default class extends Controller {
     if(this.isRecording === true && !this.clip) {
 
       // this.clip = "recorded clip"
-      console.log("Media Recorder Stop!", mediaRecorder.state);
+      console.log("Media Recorder Stop!", this.mediaRecorder.state);
       setTimeout(() => {
-        mediaRecorder.stop();
+        this.mediaRecorder.stop();
         this.stopTime = Date.now();
         console.log("Stop time", this.stopTime);
         this.totalMilliseconds = this.stopTime - this.startTime;
@@ -121,7 +119,7 @@ export default class extends Controller {
   reset() {
     // Not recording because finished and clip save
     this.clip = null;
-    console.log("Media Recorder what's happening?", mediaRecorder.state);
+    console.log("Media Recorder what's happening?", this.mediaRecorder.state);
     this.start_recordingTarget.classList.remove("d-none")
     this.start_playbackTarget.classList.add("d-none")
     this.clipTarget.classList.add("d-none")
