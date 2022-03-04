@@ -6,6 +6,10 @@ class SpeechesController < ApplicationController
   def new
     @speech = Speech.new
     authorize @speech
+    if current_user.teacher? && params["training"].present?
+      @training = Training.find_by(id: params["training"].to_i)
+    end
+    # raise
   end
 
   def show
@@ -17,15 +21,17 @@ class SpeechesController < ApplicationController
   def create
     @speech = Speech.new(speech_params)
     @speech.user = current_user
-    @training = Training.new
+    if params["training"].nil? #@speech.training.blank?
+      @training = Training.new
+      @training.user = current_user
+      @speech.training = @training
+    else
+      @training = Training.find_by(id: params["training"].to_i)
+      @speech.training = @training
+    end
     authorize @speech
     # byebug
     if @speech.save
-      if @speech.training.blank?
-        @speech.training = @training
-      else
-        #
-      end
       redirect_to root_path, notice: 'Your speech was saved successfully'
     else
       render :new, notice: 'Please try again, your speech could not be saved'
