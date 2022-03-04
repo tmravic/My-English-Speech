@@ -1,5 +1,5 @@
 <div id="recording-studio-body">
-  <div class="container">
+  <div class="container" data-controller="recording">
     <h1>Recording Studio</h1>
     <%= simple_form_for @speech do |f| %>
       <div class="row">
@@ -23,10 +23,11 @@
             <%= f.input :title %>
             <p>by <%= current_user.first_name %> <%= current_user.last_name %> </p>
           <% end %>
+          <%= f.input :length,  input_html: { data: { recording_target: "milliseconds" } } %>
           <%= f.input :transcript %>
           <%= f.input :notes %>
         </div>
-        <div class="col col-md-5 offset-md-1" data-controller="recording">
+        <div class="col col-md-5 offset-md-1" >
           <div class="row">
             <button data-action="click->recording#record" class="my-2 fas fa-microphone-alt big-icon audio-button" data-recording-target="start_recording" type="button"></button>
             <button data-action="click->recording#stop_recording" class="my-2 fas fa-assistive-listening-systems d-none big-icon audio-button" data-recording-target="ear" type="button"></button>

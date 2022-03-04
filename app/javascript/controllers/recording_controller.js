@@ -4,7 +4,7 @@ let mediaRecorder = null;
 
 
 export default class extends Controller {
-  static targets = [ "start_recording", "stop_recording", 'ear', "clip", "start_playback", "reset_playback", "upload" ]
+  static targets = [ "start_recording", "stop_recording", 'ear', "clip", "start_playback", "reset_playback", "upload", "milliseconds" ]
   isRecording = false;
   // clip = null;
 
@@ -79,6 +79,8 @@ export default class extends Controller {
         this.stopTime = Date.now();
         console.log("Stop time", this.stopTime);
         this.totalMilliseconds = this.stopTime - this.startTime;
+        this.millisecondsTarget.value = this.totalMilliseconds;
+
         console.log("Total milliseconds: ", this.totalMilliseconds);
       }, 500);
 
