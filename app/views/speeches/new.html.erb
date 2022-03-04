@@ -4,7 +4,7 @@
     <%= simple_form_for @speech do |f| %>
       <div class="row">
         <div class="col col-md-5 offset-md-1 ">
-          <% if current_user.teacher? %>
+          <% if current_user.teacher? && params["training"].present? %>
             <h4 class="text-danger">Correcting student's speech</h3>
             <h3 class="bg-white overflow-auto"><%= @training.speeches[0].title %></h3>
             <p>by <%= @training.speeches[0].user.first_name %> <%= @training.speeches[0].user.last_name %></p>
