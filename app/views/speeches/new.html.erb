@@ -23,7 +23,7 @@
             <%= f.input :title %>
             <p>by <%= current_user.first_name %> <%= current_user.last_name %> </p>
           <% end %>
-          <%= f.input :length,  input_html: { data: { recording_target: "milliseconds" } } %>
+          <%= f.input :length, as: :hidden, input_html: { data: { recording_target: "milliseconds" } } %>
           <%= f.input :transcript %>
           <%= f.input :notes %>
         </div>
