@@ -6,7 +6,13 @@
   // }
   .hero-text-box {
     text-align: center;
-    padding-left: 10px;
+    padding-left: 10%;
+  }
+  h1 {
+    font-size: 3em !important;
+  }
+  h2 {
+    font-size: 1.5em !important;
   }
 }
 
@@ -16,13 +22,29 @@
   //   background-size: contain;
   //   background-repeat: no-repeat;
   // }
+  h1 {
+    font-size: 3em !important;
+  }
+  h2 {
+    font-size: 1.5em !important;
+  }
+  .hero-text-box {
+    text-align: center;
+    padding-left: 8%;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+  h1 {
+    font-size: 3.5em !important;
+  }
+  h2 {
+    font-size: 2em !important;
+  }
   .hero-text-box {
     text-align: center;
-    // padding-left: 20px;
+    // padding-left: 18%;
   }
 }
 
@@ -34,7 +56,7 @@
 @media (min-width: 1200px) {
   .hero-text-box {
     text-align: center;
-    padding-left: 20px;
+    padding-left: 12%;
   }
 
 }
