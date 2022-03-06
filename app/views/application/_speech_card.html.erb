@@ -1,15 +1,11 @@
-<div class="container-card flex-container my-5 position-relative text-center">
-  <div class="row justify-content-around">
-    <div class="list d-flex justify-content-around col-12 co-lg ">
-      <div class="speech-card">
-        <div class="speech-card-contents">
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" width="44" height="44" class="avatar">
-          <p><%= speech.user.first_name %> <%= speech.user.last_name %></p>
-          <h2><%= speech.title %></h2>
-          <p><%= speech.seconds %> seconds</p>
-          <p><%= speech.transcript %></p>
-        </div>
-      </div>
+<div class="container-card d-flex position-relative text-center">
+  <div class="speech-card">
+    <div class="speech-card-contents">
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-large">
+      <p><%= speech.user.first_name %> <%= speech.user.last_name %></p>
+      <h2><%= speech.title %></h2>
+      <p>Time: <%= speech.seconds %> seconds</p>
+      <img src="https://www.nicepng.com/png/full/131-1314805_radio-spot-icon-mike-icons.png" class="avatar-large">
     </div>
   </div>
 </div>
