@@ -47,7 +47,7 @@
 
   .home-header {
     background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://img.freepik.com/free-vector/people-with-mobile-phones-using-smart-voice-assistant-software-man-woman-near-screen-with-microphone-soundwaves-sound-recording-app-interface-ai-technology-concept_74855-10131.jpg?w=1280);
-    background-size: center;
+    background-size: auto;
     background-position: center;
     height: 80vh;
     background-attachment: fixed;
@@ -55,7 +55,7 @@
 
   .hero-text-box {
     text-align: center;
-    padding-top: 15%;
+    padding-top: 200px;
   }
 
   .btn {
@@ -91,23 +91,9 @@
   }
 
   #explanation #overview {
-    margin-top: 30px;
+    margin-top: 10px;
     text-align: center;
   }
-
-  // section h2 {
-  //   color: $color-light-black;
-  // }
-
-  // #explanation h2:after {
-  //   display: block;
-  //   height: 2px;
-  //   background-color: $official-blue;
-  //   content: " ";
-  //   width: 100px;
-  //   margin: 0 auto;
-  //   margin-top: 30px;
-  // }
 
   .long-copy {
     line-height: 145%;
@@ -210,6 +196,14 @@
     font-size: 20px;
     font-weight: 300;
     font-family: 'Lato', sans-serif;
+  }
+
+  blockquote img {
+    margin-right: 10px;
+  }
+
+  cite {
+    font-size: 18px;
   }
 
   #reviews i {
