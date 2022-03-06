@@ -7,12 +7,15 @@
   color: #F4F4F4;
   a {
     text-decoration: none;
+    display: block;
   }
 }
+
 .footer-links {
   display: flex;
   align-items: center;
 }
+
 .footer-links a {
   color: white;
   opacity: 0.35;
@@ -28,6 +31,7 @@
   opacity: 1;
   color: white;
 }
+
 .footer .fa-heart {
   color: #D23333;
 }
