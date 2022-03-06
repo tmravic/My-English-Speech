@@ -36,3 +36,17 @@
   width: 80px;
   border-radius: 50%;
 }
+
+.speech-card {
+  position: relative;
+  padding: 25px;
+  border-radius: 8px;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  background: white;
+  height: 300px;
+}
+
+.speech-card-contents{
+
+}
