@@ -1,9 +1,5 @@
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
-  // .home-header {
-  //   background-size: cover;
-  //   background-repeat: no-repeat;
-  // }
   .hero-text-box {
     text-align: center;
     padding-left: 10%;
@@ -18,10 +14,6 @@
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  // .home-header {
-  //   background-size: contain;
-  //   background-repeat: no-repeat;
-  // }
   h1 {
     font-size: 3em !important;
   }
