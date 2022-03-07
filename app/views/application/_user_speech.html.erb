@@ -1,4 +1,14 @@
-<h2 class="text-center"> <%= speech.user.teacher? ? "Teacher speech" : "Student speech" %></h2>
+<div class="row">
+  <div class="col col-md-4">
+    <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'speech_id', speech.id %>
+      <%= submit_tag 'Make payment', class: "btn btn-primary", id: "pay" %>
+    <% end %>
+  </div>
+  <div class="col col-md-4">
+    <h2 class="text-center"> <%= speech.user.teacher? ? "Teacher speech" : "Student speech" %></h2>
+  </div>
+</div>
 <div class="col col-12 col-md-4 text-center">
   <p>Speech audio</p>
   <div class="d-flex align-items-center">
