@@ -3,6 +3,7 @@ class CreateSpeeches < ActiveRecord::Migration[6.1]
     create_table :speeches do |t|
       t.string :title
       t.integer :length
+      t.integer :status, default: 0
       t.references :user, null: false, foreign_key: true
       t.references :training, null: false, foreign_key: true
       t.text :notes

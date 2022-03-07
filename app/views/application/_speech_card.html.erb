@@ -5,6 +5,15 @@
       <p><%= speech.user.first_name %> <%= speech.user.last_name %></p>
       <%= link_to speech.title, speech_path(speech.id), class:"btn btn-primaly stretched-link ",style: "font-weight: bold; font-size: 24px" %>
       <p>Time: <%= speech.seconds %> seconds</p>
+      <h3><span class="status-pill <%= speech.status %>"><%= speech.status %></span></h3>
+      <% if speech.pending_payment? %>
+        <%= simple_form_for speech do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'awaiting_correction'} %>
+          <%= f.submit 'awaiting correction', class: 'btn btn-success mx-2 my-2' %>
+        <% end %>
+      <% else %>
+        <p class='status-display'><%= speech.status %></p>
+      <% end %>
       <img src="https://www.nicepng.com/png/full/131-1314805_radio-spot-icon-mike-icons.png" class="avatar-large">
     </div>
   </div>
