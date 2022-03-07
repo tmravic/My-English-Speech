@@ -1,8 +1,8 @@
 #recording-studio-body {
   height: 100vh;
-  // background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://res.cloudinary.com/dqco8z2dj/image/upload/v1646563010/recording_studio_tkzg5o.jpg);
-  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://res.cloudinary.com/dqco8z2dj/image/upload/v1646617547/recording_studio2_dxdpd0.jpg);
-  background-position: center;
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://res.cloudinary.com/dqco8z2dj/image/upload/v1646563010/recording_studio_tkzg5o.jpg);
+  // background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://res.cloudinary.com/dqco8z2dj/image/upload/v1646617547/recording_studio2_dxdpd0.jpg);
+  background-position: right;
   background-size: contain;
   background-repeat: no-repeat;
   h1, h2, h3, p, label {
@@ -39,7 +39,7 @@
 
   }
   textarea, input {
-    opacity: 0.5;
+    opacity: 1;
   }
   textarea {
     height: 150px;

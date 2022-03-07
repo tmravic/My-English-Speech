@@ -1,4 +1,5 @@
 class SpeechesController < ApplicationController
+  # skip_before_action :authenticate_user!
   def index
     @speeches = policy_scope(Speech).order(created_at: :desc)
   end
@@ -21,16 +22,18 @@ class SpeechesController < ApplicationController
   def create
     @speech = Speech.new(speech_params)
     @speech.user = current_user
-    if params["training"].nil? #@speech.training.blank?
+    if params["training"].nil?
       @training = Training.new
       @training.user = current_user
       @speech.training = @training
+      # raise
+      # byebug
     else
       @training = Training.find_by(id: params["training"].to_i)
       @speech.training = @training
+      # raise
     end
     authorize @speech
-    # byebug
     if @speech.save
       redirect_to root_path, notice: 'Your speech was saved successfully'
     else
