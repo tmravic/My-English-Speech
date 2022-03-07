@@ -4,6 +4,7 @@ class Speech < ApplicationRecord
   has_one_attached :audio, dependent: :destroy
   has_many :orders
 
+
   # validates :status, presence: true
   enum status: {
     pending_payment: 0,
