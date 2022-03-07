@@ -2,15 +2,15 @@ class Speech < ApplicationRecord
   belongs_to :user
   belongs_to :training
   has_one_attached :audio, dependent: :destroy
+  has_many :orders
 
-
-  validates :status, presence: true
+  # validates :status, presence: true
   enum status: {
     pending_payment: 0,
     awaiting_correction: 1,
     corrected: 2
   }
-  
+
   PRICE_PER_SECOND = 5
 
   def seconds
@@ -20,7 +20,8 @@ class Speech < ApplicationRecord
   end
 
   def total_price
-    PRICE_PER_SECOND * seconds
+    price = PRICE_PER_SECOND * seconds
+    price < 50 ? 50 : price
   end
 
   # callback
