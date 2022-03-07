@@ -3,31 +3,7 @@
     <h1>Recording Studio</h1>
     <%= simple_form_for @speech do |f| %>
       <div class="row">
-        <div class="col-12 col-md-5">
-          <% if current_user.teacher? && params["training"].present? %>
-            <h4 class="text-danger">Correcting student's speech</h3>
-            <h3 class="bg-white overflow-auto"><%= @training.speeches[0].title %></h3>
-            <p>by <%= @training.speeches[0].user.first_name %> <%= @training.speeches[0].user.last_name %></p>
-            <form action="/speeches">
-              <input class="d-none" type="text" name="training" value=<%= @training.id %>>
-            </form>
-            <p>Student speech transcript:</p>
-            <div class="bg-white overflow-auto">
-              <%= @training.speeches[0].transcript %>
-            </div>
-            <p>Student speech notes:</p>
-            <div class="bg-white overflow-auto">
-              <%= @training.speeches[0].notes %>
-            </div>
-          <% else %>
-            <%= f.input :title %>
-            <p>by <%= current_user.first_name %> <%= current_user.last_name %> </p>
-          <% end %>
-          <%= f.input :length, as: :hidden, input_html: { data: { recording_target: "milliseconds" } } %>
-          <%= f.input :transcript %>
-          <%= f.input :notes %>
-        </div>
-        <div class="col col-md-4 offset-md-2" >
+        <div class="col-12 col-md-6">
           <div class="row">
             <button data-action="click->recording#record" class="my-2 fas fa-microphone-alt big-icon audio-button" data-recording-target="start_recording" type="button"></button>
             <button data-action="click->recording#stop_recording" class="my-2 fas fa-assistive-listening-systems d-none big-icon audio-button" data-recording-target="ear" type="button"></button>
@@ -53,6 +29,31 @@
               </div>
             </div>
           </div>
+          <%= f.input :status, as: :hidden, input_html: {value: :pending_payment, id: 'payment_status'} %>
+          <% if current_user.teacher? && params["training"].present? %>
+            <h4 class="text-danger">Correcting student's speech</h3>
+            <h3 class="bg-white overflow-auto"><%= @training.speeches[0].title %></h3>
+            <p>by <%= @training.speeches[0].user.first_name %> <%= @training.speeches[0].user.last_name %></p>
+            <form action="/speeches">
+              <input class="d-none" type="text" name="training" value=<%= @training.id %>>
+            </form>
+            <p>Student speech transcript:</p>
+            <div class="bg-white overflow-auto">
+              <%= @training.speeches[0].transcript %>
+            </div>
+            <p>Student speech notes:</p>
+            <div class="bg-white overflow-auto">
+              <%= @training.speeches[0].notes %>
+            </div>
+          <% else %>
+            <%= f.input :title %>
+            <p>by <%= current_user.first_name %> <%= current_user.last_name %> </p>
+          <% end %>
+          <%= f.input :length, as: :hidden, input_html: { data: { recording_target: "milliseconds" } } %>
+          <%= f.input :transcript %>
+          <%= f.input :notes %>
+        </div>
+        <div class="col col-md-4 offset-md-2" >
         </div>
       <% end %>
     </div>

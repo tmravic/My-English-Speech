@@ -5,6 +5,7 @@
       <p><%= speech.user.first_name %> <%= speech.user.last_name %></p>
       <%= link_to speech.title, speech_path(speech.id), class:"btn btn-primaly stretched-link ",style: "font-weight: bold; font-size: 24px" %>
       <p>Time: <%= speech.seconds %> seconds</p>
+      <p>Total price: <%= speech.total_price %> </p>
       <h3><span class="status-pill <%= speech.status %>"><%= speech.status %></span></h3>
       <% if speech.pending_payment? %>
         <%= simple_form_for speech do |f| %>
