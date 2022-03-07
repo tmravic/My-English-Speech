@@ -13,13 +13,15 @@
       <% end %>
     </div>
     <div class="cards my-5">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(	https://img.freepik.com/free-vector/search-concept-landing-page_52683-11001.jpg?w=1480)">
-        <a href="http://[::1]:3000/">Home</a>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(	https://img.freepik.com/free-vector/search-concept-landing-page_52683-11001.jpg?w=1480)">
+        <%# <a href="http://[::1]:3000/">Home</a> %>
+        <%= link_to 'Home', root_path%>
       </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/free-vector/microphone-sound-illustration_24908-61095.jpg?w=1060)">
-        <a href="http://[::1]:3000/speeches/new">Recording</a>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://img.freepik.com/free-vector/microphone-sound-illustration_24908-61095.jpg?w=1060)">
+        <%# <a href="http://[::1]:3000/speeches/new">Recording</a> %>
+        <%= link_to 'Recording', new_speech_url %>
       </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(	https://img.freepik.com/free-vector/landing-page-credit-card-payment-concept_52683-25085.jpg?w=1380)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(	https://img.freepik.com/free-vector/landing-page-credit-card-payment-concept_52683-25085.jpg?w=1380)">
         Payment
       </div>
     </div>
