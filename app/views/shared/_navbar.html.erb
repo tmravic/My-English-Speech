@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "MyEnglishSpech_logo.png" %>
+      <%= image_tag "MyEnglishSpech_logo.jpg" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -18,9 +18,11 @@
           <li class="nav-item">
             <%= link_to "New Speech", new_speech_path, class: "nav-link" %>
           </li>
+          <!--
           <li class="nav-item">
             <%= render 'new_thing' %>
           </li>
+          -->
           <li class="nav-item dropdown">
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
