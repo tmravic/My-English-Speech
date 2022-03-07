@@ -25,6 +25,7 @@ class ApplicationPolicy
   end
 
   def update?
+    # if user.teacher?   # need to implement function where teacher can edit(update) his/her recording.
     false
   end
 
@@ -33,6 +34,7 @@ class ApplicationPolicy
   end
 
   def destroy?
+    # need to implement function where teacher can destroy his/her recording. training.user == user
     false
   end
 
