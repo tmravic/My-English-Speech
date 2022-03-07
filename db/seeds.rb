@@ -17,13 +17,13 @@ u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
 
 u = User.create!(first_name: "Taylor", last_name: "Mravic", password: "123456", email: "taylor@mravic.com", teacher: true)
-file = URI.open("https://avatars.githubusercontent.com/u/59186645?v=4")
+file = URI.open("https://www.wantedly.com/users/154326948/avatar?t=b5f4c4ccc37ea0b212f77da23fab660e")
 u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
 
 
 u = User.create!(first_name: "Doug", last_name: "Theman", password: "123456", email: "doug@theman.com", teacher: true)
-file = URI.open("https://avatars.githubusercontent.com/u/25542223?v=4")
+file = URI.open("https://www.douglasberkley.com/images/face.jpg")
 u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
 
@@ -33,7 +33,7 @@ u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
 
 u = User.create!(first_name: "Trouni", last_name: "Assassin", password: "123456", email: "trouni@assassin.com", teacher: true)
-file = URI.open('https://avatars.githubusercontent.com/u/34345789?v=4')
+file = URI.open('https://i1.wp.com/www.kaepler.com/wp-content/uploads/2021/09/headshot-edited.jpg')
 u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
 
