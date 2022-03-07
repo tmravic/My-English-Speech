@@ -13,7 +13,8 @@
 
 .footer-links {
   display: flex;
-  justify-content: center;
+  justify-content
+  : center;
 }
 
 .footer-links a {
@@ -34,4 +35,18 @@
 
 .footer .fa-heart {
   color: #D23333;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .footer-copyright a {
+    font-size: 16px !important;
+  }
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .footer-copyright a {
+    font-size: 14px !important;
+  }
 }
