@@ -1,0 +1,96 @@
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  h1 {
+    font-size: 2.5em !important;
+  }
+  h2 {
+    font-size: 1.5em !important;
+  }
+  .long-copy, blockquote {
+    font-size: 18px !important;
+  }
+  cite {
+    font-size: 16px !important;
+  }
+  blockquote i {
+    font-size: 16px;
+  }
+  .btn {
+    margin: 7px 0;
+  }
+  .btn-full {
+    padding: 10px 40px !important;
+    margin-right: 0px !important;
+  }
+  .home-header {
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    height: 70vh !important;
+  }
+  .hero-text-box {
+    padding-top: 150px !important;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  h1 {
+    font-size: 3em !important;
+  }
+  h2 {
+    font-size: 1.5em !important;
+  }
+  .long-copy, blockquote {
+    font-size: 18px !important;
+  }
+  cite {
+    font-size: 16px !important;
+  }
+  blockquote i {
+    font-size: 16px;
+  }
+  .home-header {
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    height: 80vh;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.5em !important;
+  }
+  h2 {
+    font-size: 2em !important;
+  }
+  h3 {
+    font-size: 18px !important;
+  }
+  .icon-text {
+    font-size: 16px;
+  }
+  .long-copy, blockquote {
+    font-size: 18px !important;
+  }
+  cite {
+    font-size: 16px !important;
+  }
+  .home-header {
+    height: 80vh !important;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .home-header {
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    height: 80vh;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

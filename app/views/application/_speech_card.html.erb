@@ -1,9 +1,21 @@
+<div class="container-card d-flex position-relative text-center">
+  <div class="speech-card">
+    <div class="speech-card-contents">
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-large">
+      <p><%= speech.user.first_name %> <%= speech.user.last_name %></p>
+      <%= link_to speech.title, speech_path(speech.id), class:"btn btn-primaly stretched-link ",style: "font-weight: bold; font-size: 24px" %>
+      <p>Time: <%= speech.seconds %> seconds</p>
+      <img src="https://www.nicepng.com/png/full/131-1314805_radio-spot-icon-mike-icons.png" class="avatar-large">
+    </div>
+  </div>
+</div>
+<!--
 <div class="card-product flex-container my-5 position-relative">
   <img src="https://www.nicepng.com/png/full/131-1314805_radio-spot-icon-mike-icons.png" />
-  <div class="flex-item">
-    <a href="http://[::1]:3000/speeches/<%= speech.id %>" class="btn btn-primaly stretched-link">
-      <h2>Title</h2>
-    </a>
+  <div class="flex-item"> -->
+<!-- <a href="http://[::1]:3000/speeches/<%= speech.id %>" class="btn btn-primaly stretched-link"> -->
+<!--
+    <%= link_to'Title', speech_path(speech.id), class:"btn btn-primaly stretched-link ",style: "font-weight: bold; font-size: 14px" %>
     <p><%= speech.title %></p>
   </div>
   <div class="flex-item">
@@ -12,9 +24,10 @@
   </div>
   <div class="flex-item">
     <h2>Recording time</h2>
-    <p>00:10</p>
+    <p><%= speech.seconds %> seconds</p>
   </div>
   <div class="flex-item">
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar" />
   </div>
 </div>
+-->
