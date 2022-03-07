@@ -1,0 +1,8 @@
+<%= simple_form_for(speech) do |f| %>
+  <% if transcript %>
+  <%= f.input :transcript %>
+  <% else %>
+  <%= f.input :notes %>
+  <% end %>
+  <%= f.button :submit, "Submit", class: "btn btn-success my-2" %>
+<% end %>
