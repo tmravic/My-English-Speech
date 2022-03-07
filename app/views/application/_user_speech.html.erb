@@ -1,6 +1,8 @@
 <h2 class="text-center"> <%= speech.user.teacher? ? "Teacher speech" : "Student speech" %></h2>
 <div class="col col-12 col-md-4 text-center">
-  <p>Speech audio</p>
+  <p>Speech audio
+  <i class="far fa-trash-alt"></i>
+  </p>
   <div class="d-flex align-items-center">
     <audio controls src="https://res.cloudinary.com/dqco8z2dj/video/upload/<%= Rails.env %>/<%= speech.audio.key %>.webm"> </audio>
   </div>

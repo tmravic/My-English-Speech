@@ -44,6 +44,23 @@ class SpeechesController < ApplicationController
   def edit
   end
 
+  def update
+    @speech = Speech.find(params[:id])
+    authorize @speech
+    if @speech.update(speech_params)
+      redirect_to speech_path(@speech), notice: 'Your speech was successfully updated.'
+    else
+      render :show
+    end
+  end
+
+  def destroy
+    @speech = Speech.find(params[:id])
+    authorize @speech
+    @speech.destroy
+    redirect_to speeches_url, notice: 'Your speech was successfully deleted.'
+  end
+
   private
 
   def speech_params

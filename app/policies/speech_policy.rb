@@ -19,6 +19,14 @@ class SpeechPolicy < ApplicationPolicy
     record.user == user || user.teacher?
   end
 
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
+  end
+
   def create?
     true
   end
