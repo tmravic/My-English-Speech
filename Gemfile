@@ -37,6 +37,7 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'pundit'
 gem 'money-rails'
 gem 'stripe'
+gem 'stripe_event'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
