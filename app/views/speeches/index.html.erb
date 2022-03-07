@@ -1,45 +1,30 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(	https://img.freepik.com/free-vector/job-interview-conversation_74855-7566.jpg?w=1800);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(	https://img.freepik.com/free-vector/job-interview-conversation_74855-7566.jpg?w=1800);">
   <div class="container">
     <h1>My English Speech's your speeches!</h1>
   </div>
 </div>
-<div class="container">
-  <% @speeches.each do |speech| %>
-    <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
-    <%= render 'speech_card', speech: speech %>
-    <%# </div> %>
-  <% end %>
-  <div class="cards my-5">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(	https://img.freepik.com/free-vector/search-concept-landing-page_52683-11001.jpg?w=1480)">
-      <a href="http://[::1]:3000/">Home</a>
+<div id="index-body">
+  <div class="container my-5">
+    <div class="container-speech">
+      <% @speeches.each do |speech| %>
+        <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
+        <%= render 'speech_card', speech: speech %>
+        <%# </div> %>
+      <% end %>
     </div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/free-vector/microphone-sound-illustration_24908-61095.jpg?w=1060)">
-      <a href="http://[::1]:3000/speeches/new">Recording</a>
-    </div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(	https://img.freepik.com/free-vector/landing-page-credit-card-payment-concept_52683-25085.jpg?w=1380)">
-      Payment
+    <div class="cards my-5">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(	https://img.freepik.com/free-vector/search-concept-landing-page_52683-11001.jpg?w=1480)">
+        <%# <a href="http://[::1]:3000/">Home</a> %>
+        <%= link_to 'Home', root_path%>
+      </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://img.freepik.com/free-vector/microphone-sound-illustration_24908-61095.jpg?w=1060)">
+        <%# <a href="http://[::1]:3000/speeches/new">Recording</a> %>
+        <%= link_to 'Recording', new_speech_url %>
+      </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(	https://img.freepik.com/free-vector/landing-page-credit-card-payment-concept_52683-25085.jpg?w=1380)">
+        Payment
+      </div>
     </div>
   </div>
 </div>
-<div class="footer">
-  <div class="footer-links my-5">
-    <a class="btn btn-floating m-1" style="background-color: #333333;" href="#!" role="button">
-      <i class="fab fa-github"></i>
-    </a>
-    <a class="btn btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a class="btn btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a class="btn btn-floating m-1" style="background-color: #55acee;" href="#!" role="button">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a class="btn btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-  </div>
-  <div class="footer-copyright text-center my-5">
-    This footer is made with MyEnglishSpeech member<i class="fas fa-heart"></i> at Le Wagon
-  </div>
 </div>

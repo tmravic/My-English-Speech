@@ -41,4 +41,7 @@ yarn-debug.log*
 .DS_Store
 .env*
 .env*
+<<<<<<< HEAD
 .env*
+=======
+>>>>>>> master

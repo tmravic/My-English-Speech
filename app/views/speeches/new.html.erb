@@ -1,10 +1,10 @@
 <div id="recording-studio-body">
-  <div class="container">
+  <div class="container" data-controller="recording">
     <h1>Recording Studio</h1>
     <%= simple_form_for @speech do |f| %>
       <div class="row">
-        <div class="col col-md-5 offset-md-1 ">
-          <% if current_user.teacher? %>
+        <div class="col-12 col-md-5">
+          <% if current_user.teacher? && params["training"].present? %>
             <h4 class="text-danger">Correcting student's speech</h3>
             <h3 class="bg-white overflow-auto"><%= @training.speeches[0].title %></h3>
             <p>by <%= @training.speeches[0].user.first_name %> <%= @training.speeches[0].user.last_name %></p>
@@ -23,10 +23,11 @@
             <%= f.input :title %>
             <p>by <%= current_user.first_name %> <%= current_user.last_name %> </p>
           <% end %>
+          <%= f.input :length, as: :hidden, input_html: { data: { recording_target: "milliseconds" } } %>
           <%= f.input :transcript %>
           <%= f.input :notes %>
         </div>
-        <div class="col col-md-5 offset-md-1" data-controller="recording">
+        <div class="col col-md-4 offset-md-2" >
           <div class="row">
             <button data-action="click->recording#record" class="my-2 fas fa-microphone-alt big-icon audio-button" data-recording-target="start_recording" type="button"></button>
             <button data-action="click->recording#stop_recording" class="my-2 fas fa-assistive-listening-systems d-none big-icon audio-button" data-recording-target="ear" type="button"></button>
@@ -45,10 +46,10 @@
                 <button class="btn btn-info d-none" type="button"
                   data-action="click->recording#reset"
                   data-recording-target="reset_playback">Reset</button>
-                <%= f.button :submit, "Upload", class: "btn btn-primary d-none",
+                <%= f.button :submit, "Upload", class: "btn btn-primary d-none", style: "opacity:1;",
                 data: { recording_target: 'upload', action: "click->recording#upload" } %>
                 <%# <%= f.input :file, as: :file, class: "d-none" %>
-                <%= link_to "Back Home", root_path, class: "btn btn-secondary" %>
+                <%= link_to "Back Home", root_path, class: "btn btn-secondary", style: "font-family: 'Lato', sans-serif;font-weight: 300;" %>
               </div>
             </div>
           </div>

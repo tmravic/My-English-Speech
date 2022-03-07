@@ -1,0 +1,221 @@
+<<<<<<< HEAD
+=======
+.home-page {
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap');
+
+  $color-light-black: #555;
+  $official-blue: #464D77;
+  $official-white: #FFFCF2;
+  $official-orange: #A44200;
+  $official-red: #D90429;
+  $official-purple: #613F75;
+
+  background-color: $official-white;
+  overflow-wrap: break-word;
+
+  section {
+    margin-bottom: 50px;
+  }
+
+  h1, h2, h3 {
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+  }
+  h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 4em;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    // text-align: center;
+  }
+
+  h2 {
+    font-size: 2em;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 135%;
+    margin-bottom: 15px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  .home-header {
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://img.freepik.com/free-vector/people-with-mobile-phones-using-smart-voice-assistant-software-man-woman-near-screen-with-microphone-soundwaves-sound-recording-app-interface-ai-technology-concept_74855-10131.jpg?w=1280);
+    background-size: auto;
+    background-position: center;
+    height: 80vh;
+    background-attachment: fixed;
+  }
+
+  .hero-text-box {
+    text-align: center;
+    padding-top: 200px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+  }
+  .btn-full:link,
+  .btn-full:visited {
+    background-color: $official-blue;
+    border: 1px solid $official-blue;
+    color: #fff;
+    margin-right: 8px;
+  }
+
+  .btn:hover,
+  .btn:active {
+    background-color: #576092;
+  }
+
+  .btn-ghost:link,
+  .btn-ghost:visited {
+    border: 2px solid $official-blue;
+    color: #fff;
+  }
+
+  .btn-ghost:hover,
+  .btn-ghost:active {
+    border: 1px solid #576092;;
+    color: #fff;
+  }
+
+  #explanation #overview {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .long-copy {
+    line-height: 145%;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    color: $color-light-black;
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  #icons {
+    text-align: left;
+    font-family: 'Lato', sans-serif !important;
+    line-height: 145%;
+    font-size: 18px;
+  }
+
+  #icons i {
+    font-size: 350%;
+    margin-bottom: 10px;
+    font-weight: 300;
+    color: $official-blue;
+  }
+
+  .icon-text {
+    font-family: 'Lato', sans-serif !important;
+    color: $color-light-black;
+    font-weight: 300;
+
+  }
+
+  section h2 {
+    color: $color-light-black;
+  }
+
+  section h2:after {
+    display: block;
+    height: 2px;
+    background-color: $official-blue;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+
+  #how-it-works {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  #how-it-works img {
+    width: 80%;
+  }
+
+  .steps {
+    text-align: left;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    color: $color-light-black;
+    font-size: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: start;
+  }
+
+  .steps div {
+    color: $official-red;
+    font-size: 150%;
+    border: 2px solid $official-red;
+    border-radius: 50%;
+    height: 54px;
+    width: 54px;
+    margin-right: 25px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 15px;
+  }
+
+  .steps:last-of-type {
+    margin-bottom: 80px;
+  }
+
+  #reviews {
+    background-size: cover;
+    color: #fff;
+    background-attachment: fixed;
+    margin-bottom: 0;
+  }
+
+  #reviews h2 {
+    color: #fff;
+  }
+
+  blockquote {
+    padding: 2%;
+    font-style: italic;
+    line-height: 145%;
+    margin-bottom: 40px;
+    position: relative;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+  }
+
+  blockquote img {
+    margin-right: 10px;
+  }
+
+  cite {
+    font-size: 18px;
+  }
+
+  #reviews i {
+    display: block;
+    margin: 15px 0;
+  }
+
+  #contact-us {
+    background-color: #fff;
+    margin-bottom: 0;
+  }
+}
+>>>>>>> master
