@@ -1,21 +1,21 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/free-vector/people-recording-listening-podcasts-illustration_52683-53660.jpg?w=1800);">
+<div class="banner" id="index-banner">
   <div class="container">
-    <h1>My Speeches!</h1>
+    <h1>My Speech</h1>
   </div>
 </div>
 <div id="one-speech-body">
   <div class="container">
     <div class="row justify-content-between align-items-center">
       <div class="col col-md-4">
-        <div class="my-2 p-1 overflow-auto w-100" id="title-box">
-          <h2>Title: <%= @speech.title %></h2>
+        <div class="my-2 p-3 overflow-auto w-100" id="title-box">
+          <h3>Title: <%= @speech.title %></h3>
         </div>
       </div>
       <div class="col col-md-4 text-center">
         <% if current_user.teacher? %>
           <form action="/speeches/new">
             <input class="d-none" type="text" name="training" value=<%= @speech.training.id %>>
-            <button class="btn btn-info p-3 my-2" type="submit">Correct speech</button>
+            <button class="btn btn-purple p-3 my-2" type="submit">Correct speech</button>
           </form>
         <% end %>
       </div>

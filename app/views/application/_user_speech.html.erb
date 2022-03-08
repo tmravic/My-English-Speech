@@ -15,6 +15,7 @@
     <p style="position:absolute;right:0;top:0;">Speech by <%= speech.user.first_name%> </p>
   </div>
 </div>
+
 <div class="col col-12 col-md-4 text-center">
   <p>Speech audio
     <i class="far fa-trash-alt" ></i>
@@ -22,23 +23,36 @@
   </p>
   <div class="d-flex align-items-center">
     <audio controls src="<%=cloudinary_url(speech.audio.key, :resource_type=>"video")%>"> </audio>
+
+<div class="row py-2">
+  <div class="col col-12 col-md-4 text-center">
+    <p>Speech audio
+      <%# <i class="far fa-trash-alt" ></i>
+  <%= link_to "Delete Speech", speech_path(resource_name), data: { confirm: "Delete speech?" }, method: :delete %>
+    </p>
+    <div class="d-flex align-items-center">
+      <audio controls src="https://res.cloudinary.com/dqco8z2dj/video/upload/<%= Rails.env %>/<%= speech.audio.key %>.webm"> </audio>
+      <%# file_id and format needs to be fetched dynamically %>
+      <%# https://res.cloudinary.com/dqco8z2dj/video/upload/file_id/development/yiofka9rk8e22mj3p1no7xl33qgu.mp3 %>
+    </div>
   </div>
-</div>
-<div class="col col-12 col-md-4 text-center">
-  <p>Transcript
-    <% if current_user == speech.user %>
-      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_transcript_<%=speech.id%>"></i>
-    <% end %>
-  </p>
-  <%= render 'speeches/edit_modal', id: "speech_transcript_#{speech.id}", speech: speech, transcript: true  %>
-  <div class="w-100 h-50 overflow-auto my-2 bg-white"><%= speech.transcript %></div>
-</div>
-<div class="col col-12 col-md-4 text-center">
-  <p>Notes
-    <% if current_user == speech.user %>
-      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_notes_<%=speech.id%>"></i>
-    <% end %>
-  </p>
-  <%= render 'speeches/edit_modal', id: "speech_notes_#{speech.id}", speech: speech, transcript: false  %>
-  <div class="w-100 h-50 overflow-auto my-2 bg-white"><%= speech.notes %></div>
+  <div class="col col-12 col-md-4 text-center">
+    <p>Transcript
+      <% if current_user == speech.user %>
+        <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_transcript_<%=speech.id%>"></i>
+      <% end %>
+    </p>
+    <%= render 'speeches/edit_modal', id: "speech_transcript_#{speech.id}", speech: speech, transcript: true  %>
+    <div class="w-100 overflow-auto my-2 bg-white"><%= speech.transcript %></div>
+  </div>
+  <div class="col col-12 col-md-4 text-center">
+    <p>Notes
+      <% if current_user == speech.user %>
+        <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_notes_<%=speech.id%>"></i>
+      <% end %>
+    </p>
+    <%= render 'speeches/edit_modal', id: "speech_notes_#{speech.id}", speech: speech, transcript: false  %>
+    <div class="w-100 overflow-auto my-2 bg-white"><%= speech.notes %></div>
+
+  </div>
 </div>
