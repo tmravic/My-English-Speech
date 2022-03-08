@@ -1,18 +1,26 @@
-<div class="row">
+<div class="row" style="position:relative;">
   <div class="col col-md-4">
-    <%= form_tag orders_path do %>
-      <%= hidden_field_tag 'speech_id', speech.id %>
-      <%= submit_tag 'Make payment', class: "btn btn-primary", id: "pay" %>
+    <% if current_user == speech.user && !current_user.teacher %>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'speech_id', speech.id %>
+        <%= submit_tag 'Make payment', class: "btn btn-primary", id: "pay" %>
+      <% end %>
     <% end %>
   </div>
   <div class="col col-md-4">
     <h2 class="text-center"> <%= speech.user.teacher? ? "Teacher speech" : "Student speech" %></h2>
   </div>
+  <div class="col col-md-4">
+    <%= cl_image_tag speech.user.photo.key, class: "avatar-large", style: "position:absolute;right:0;top:21px;" %>
+    <p style="position:absolute;right:0;top:0;">Speech by <%= speech.user.first_name%> </p>
+  </div>
 </div>
 <div class="col col-12 col-md-4 text-center">
   <p>Speech audio
+
   <%# <i class="far fa-trash-alt" ></i>
   <%= link_to "Delete Speech", speech_path(resource_name), data: { confirm: "Delete speech?" }, method: :delete %>
+
 
   </p>
   <div class="d-flex align-items-center">
@@ -24,19 +32,18 @@
 </div>
 <div class="col col-12 col-md-4 text-center">
   <p>Transcript
-  <% if current_user == speech.user %>
-  <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_transcript_<%=speech.id%>"></i>
-  <% end %>
+    <% if current_user == speech.user %>
+      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_transcript_<%=speech.id%>"></i>
+    <% end %>
   </p>
   <%= render 'speeches/edit_modal', id: "speech_transcript_#{speech.id}", speech: speech, transcript: true  %>
-
   <div class="w-100 h-50 overflow-auto my-2 bg-white"><%= speech.transcript %></div>
 </div>
 <div class="col col-12 col-md-4 text-center">
   <p>Notes
-  <% if current_user == speech.user %>
-    <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_notes_<%=speech.id%>"></i>
-  <% end %>
+    <% if current_user == speech.user %>
+      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_notes_<%=speech.id%>"></i>
+    <% end %>
   </p>
   <%= render 'speeches/edit_modal', id: "speech_notes_#{speech.id}", speech: speech, transcript: false  %>
   <div class="w-100 h-50 overflow-auto my-2 bg-white"><%= speech.notes %></div>
