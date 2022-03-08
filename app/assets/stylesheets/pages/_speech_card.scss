@@ -54,6 +54,10 @@ body{
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.speech-card p {
+  margin-bottom: 0.3rem;
+}
+
 .container-speech{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -97,15 +101,18 @@ body{
 
 .status-pill {
   border: 1px solid black;
-  background-color: #576091;
+  background-color: #818181;
   color: white;
   border-radius: 10px;
   padding: 2px 5px;
-  position: absolute;
-  top: 5px;
-  left: 5px;
+  // position: absolute;
+  // top: 5px;
+  // left: 5px;
   &.recorded{
-    background-color: #FF725C;
+    background-color: #576091;
+  }
+  &.paid {
+    background-color: #A44200;
   }
 }
 

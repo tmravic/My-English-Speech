@@ -5,11 +5,15 @@
   background-position: right;
   background-size: contain;
   background-repeat: no-repeat;
-  h1, h2, h3, p, label {
+  h1, h2, h3, p, h4, label {
     text-align: center;
-    color: #fff;
+    // color: #fff;
     font-family: 'Lato', sans-serif !important;
     font-weight: 300;
+    margin: 0.2rem 0;
+  }
+  h3 {
+    font-weight: 400;
   }
   i {
     text-align: center;
@@ -35,16 +39,16 @@
   #thicc {
     border: 5px solid grey;
   }
-  label, p, h1, h2, h3 {
-
-  }
   textarea, input {
-    opacity: 1;
+    border-radius: 5px;
   }
   textarea {
     height: 150px;
   }
 }
+
+$official-orange: #A44200;
+$official-purple: #613F75;
 
 .audio-button {
   background-color: rgba(0,0,0,0);
@@ -61,6 +65,28 @@
   color: #c9c9c9;
 }
 
+.recording-card {
+  margin-top: 10px;
+  padding-top: 10px;
+  background-color: #FFFCF2;
+  border-radius: 10px;
+}
+
+.correction-details {
+  background-color: #F4F4F4;
+  border-radius: 10px;
+  border: 1px solid #CED4DA;
+}
+.btn-purple {
+  background-color: $official-purple;
+  color: white;
+}
+.btn-orange {
+  background-color: $official-orange;
+  color: white;
+}
+
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   textarea {
@@ -74,6 +100,9 @@
   }
   #recording-studio-body {
     height: 135vh;
+  }
+  .recording-card {
+    margin-top: 50px;
   }
 }
 

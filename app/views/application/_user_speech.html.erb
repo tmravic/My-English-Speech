@@ -1,12 +1,18 @@
-<div class="row">
+<div class="row" style="position:relative;">
   <div class="col col-md-4">
-    <%= form_tag orders_path do %>
-      <%= hidden_field_tag 'speech_id', speech.id %>
-      <%= submit_tag 'Make payment', class: "btn btn-primary", id: "pay" %>
+    <% if current_user == speech.user && !current_user.teacher %>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'speech_id', speech.id %>
+        <%= submit_tag 'Make payment', class: "btn btn-primary", style: "color:white;", id: "pay" %>
+      <% end %>
     <% end %>
   </div>
   <div class="col col-md-4">
     <h2 class="text-center"> <%= speech.user.teacher? ? "Teacher speech" : "Student speech" %></h2>
+  </div>
+  <div class="col col-md-4">
+    <%= cl_image_tag speech.user.photo.key, class: "avatar-large", style: "position:absolute;right:0;top:21px;" %>
+    <p style="position:absolute;right:0;top:0;">Speech by <%= speech.user.first_name%> </p>
   </div>
 </div>
 <div class="col col-12 col-md-4 text-center">

@@ -27,15 +27,17 @@ class SpeechesController < ApplicationController
       @training.user = current_user
       @speech.training = @training
       # raise
-      # byebug
     else
       @training = Training.find_by(id: params["training"].to_i)
       @speech.training = @training
       # raise
     end
+    # byebug
     authorize @speech
+    # @speech.update(status: :pending_payment)
     if @speech.save
-      redirect_to root_path, notice: 'Your speech was saved successfully'
+      # byebug
+      redirect_to speech_path(@speech), notice: 'Your speech was saved successfully'
     else
       render :new, notice: 'Please try again, your speech could not be saved'
     end
