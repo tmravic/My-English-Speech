@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
+Order.destroy_all
 Speech.destroy_all
 Training.destroy_all
 User.destroy_all
@@ -163,7 +164,7 @@ t = Training.create!( user_id: users.first.id )
 t.save!
 puts "Training created"
 
-s = Speech.new(transcript: ' I am thrilled to welcome the Class of 2022 to our Graduation Party. I can scarcely believe we are graduates – it really is a time for a huge celebration. I love the party venue already, it is outstanding!
+s = Speech.new(title: 'Graduation Speech', transcript: ' I am thrilled to welcome the Class of 2022 to our Graduation Party. I can scarcely believe we are graduates – it really is a time for a huge celebration. I love the party venue already, it is outstanding!
   Before we launch the event let us take a moment to thank the party organising committee, the team who set up the party and all those who are helping tonight. This party has been many months in the planning phase and many weeks in preparation. The team also raised a lot of money to help towards costs. We all owe you a lot.
   Now, one way we can show our appreciation is to have the time of our lives!
   There is great music, dancing, entertainers, food, drinks, snack kiosks, lots of things to see and do all round the venue and of course there is our Class to be with – what more can you need.
@@ -183,7 +184,7 @@ t = Training.create!( user_id: users.first.id )
 t.save!
 puts "Training created"
 
-s = Speech.new(transcript: 'Welcome to the Graduation Party of a lifetime for the graduating Class of 2022.
+s = Speech.new(title: 'Kyoto grad address', transcript: 'Welcome to the Graduation Party of a lifetime for the graduating Class of 2022.
   We have a party lined up that you will be talking to your grandchildren about.
   There is music from the best band in the Kyoto Prefecture.
   There is great food, drinks, snacks, plus donut and bagel kiosks. We have wondering entertainers all around the party. Plus games booths where you can win prizes. We have dance prizes and lots of spot prizes too.
@@ -200,7 +201,7 @@ t.save!
 puts "Training created"
 
 
-s = Speech.new(transcript: 'It is possible to imagine that human nature, the human intellect, emotions and feelings are completely independent of our technologies; that we are essentially ahistorical beings with one constant human nature that has remained the same throughout history or even pre-history? Sometimes evolutionary psychologists—those who belief human nature was fixed on the Pleistocene Savannah—talk this way. I think this is demonstrably wrong.
+s = Speech.new(title: 'Tech Dilema.', transcript: 'It is possible to imagine that human nature, the human intellect, emotions and feelings are completely independent of our technologies; that we are essentially ahistorical beings with one constant human nature that has remained the same throughout history or even pre-history? Sometimes evolutionary psychologists—those who belief human nature was fixed on the Pleistocene Savannah—talk this way. I think this is demonstrably wrong.
   Consider ancient technologies, for example: cooking. When ancient hunter-gatherers discovered that firing their meat would not only make it tastier but could make their food easier to digest, it had a number of knock-on effects. It made parts of an animal carcass that were previously inedible edible, and also made it possible to preserve food longer. But this was not only a culinary but a cognitive success.Why? Because the amount of time our ancestors had to spend finding, hunting, and butchering their food, and thus maintain life, could be reduced making time available to invest in other activities such as thinking. Thanks to cooking, new time became available to prehistoric humans to plan, to consider, and invent other even more liberating technologies—or even to fritter away drawing bison and mammoth on the walls of caves.
   ' , notes: ' Hi, I would like some help with intonation mainly.  ', user_id: users.first.id, training_id: t.id )
 file = URI.open('https://res.cloudinary.com/dpyl9bage/video/upload/v1646705662/development/ox3ps4nokhjokwezpdj5pklq72ii.webm')
@@ -217,7 +218,7 @@ t = Training.create!( user_id: users.first.id )
 t.save!
 puts "Training created"
 
-s = Speech.new(transcript: 'Hello everyone. My name is Jim Smith, and I am a systems analyst. I have been with the company for 5 years now. I started off as a technician and over the years progressed to my current role.
+s = Speech.new(title: 'Self Introduction.', transcript: 'Hello everyone. My name is Jim Smith, and I am a systems analyst. I have been with the company for 5 years now. I started off as a technician and over the years progressed to my current role.
   When I am not working, I like to spend time with my son. We do a lot of fishing and camping together. My wife isnt a big fan, but she tags along with us most of the time.
   Its good to be here and to meet you all in person. We all exchange emails and phone calls, but its hard to really know someone until you have met face to face. I am looking forward to talking about our upcoming project with all of you
   ' , notes: 'If possible I would like it done by tomorrow.', user_id: users.first.id, training_id: t.id )
@@ -232,7 +233,7 @@ t.save!
 puts "Training created"
 
 
-s = Speech.new(transcript: 'Ladies and gentlemen, it was said half a century ago that in the future everyone on earth would get 15 minutes of fame once in a lifetime and I guess that this is mine. People have also told me to make these next few minutes escruciatingly embarrassing and to take vengeance of my enemies. Neither will happen.
+s = Speech.new(title: 'Wedding Speech', transcript: 'Ladies and gentlemen, it was said half a century ago that in the future everyone on earth would get 15 minutes of fame once in a lifetime and I guess that this is mine. People have also told me to make these next few minutes escruciatingly embarrassing and to take vengeance of my enemies. Neither will happen.
   When we visited Verona in Italy a few years ago we saw the one and only, the absolutely genuine (if you believe what they say) Romeo and Juliet balcony. It was just like this balcony between two floors that I am standing on, so how very appropriate for this romantic day.
   On the other hand and staying with Shakespeare a balcony like this would be ideal for the famous friends, Romans and countrymen lend me your ears’ speech, so perhaps you will do just that for just a few minutes.
   So, a welcome to everyone up there in heaven and a warm welcome to everyone down there in . . on the ground floor, although rumour has it that there is a lower level to which those who drink too much are escorted never to be seen again.
@@ -253,7 +254,7 @@ t = Training.create!( user_id: users.first.id )
 t.save!
 puts "Training created"
 
-s = Speech.new(transcript: 'Dear Excellencies, distinguished guests, dear colleagues, ladies and gentlemen,
+s = Speech.new(title: 'Conference Speech', transcript: 'Dear Excellencies, distinguished guests, dear colleagues, ladies and gentlemen,
   It is a true pleasure for me to welcome you to the third Euro-CASE Annual Conference, this time in Berlin. I am very grateful to you, Professor Martin Schuurmans, President of the EIT, for taking time off from your busy schedule to attend this important conference. I also wish to thank Mrs. Professor Treschow-Torrel, chair of Euro-CASE for agreeing to preside over this event.
   It is also an honour for us to welcome representatives from our partner academies as well as experts from science, business and politics to the conference today. And I would like to greet the representa- tives from the Federal Government and the European Union.
   I am especially honoured to welcome you here to the Berlin-Brandenburg Academy of Sciences – the birthplace of acatech. In this regional scientific academy, one of seven – now eight in Germany, a bottom-up process was started in early 1997 to establish a national scientific academy in the Federal Republic of Germany.
@@ -273,7 +274,7 @@ t.save!
 puts "Training created"
 
 
-s = Speech.new(transcript: 'The United Nations panel on climate change projects that the global temperatures will rise 3-10 degrees fahrenheit by the century’s end – enough to have the polar caps all but melted. If the ice caps melt, a vast majority of our countries borders will be under water. Monuments and great buildings, as well as homes and lives will be under water, including New York City.
+s = Speech.new(title: 'Climate Change Speech', transcript: 'The United Nations panel on climate change projects that the global temperatures will rise 3-10 degrees fahrenheit by the century’s end – enough to have the polar caps all but melted. If the ice caps melt, a vast majority of our countries borders will be under water. Monuments and great buildings, as well as homes and lives will be under water, including New York City.
   So now we know what some of the causes are for global warming, how can we as individuals do our part to help save the planet?
   The answer is simpler than you may think. You don’t have to go miles away from home to protest, or spend masses of money. If you try to follow the few simple steps that I shall now give you, you will have started to help us all.
   Firstly, plant a tree. This could be easier than it sounds. Join or help out a local wildlife group and ask to plant a tree. Trees, when fully grown, will help keep the planet cooler. On the same point, you could protest against the demolition of the rainforests. This is the same principle, we need the trees to cool our planet and yet they are chopping them down to create roads or homes.
@@ -298,7 +299,7 @@ t.save!
 puts "Training created"
 
 
-s = Speech.new(transcript: 'Amanda and I want to thank all of our guests for taking the time to celebrate with us today. We understand that being here was a special sacrifice for some as there is a Red Sox/Yankees game going on as we speak.
+s = Speech.new(title: 'Appreciation Speech at my Wedding', transcript: 'Amanda and I want to thank all of our guests for taking the time to celebrate with us today. We understand that being here was a special sacrifice for some as there is a Red Sox/Yankees game going on as we speak.
 
   We truly are humbled by the show of love and support that we have received from family and friends not just today, but also over the last several months. So many of you have helped with various aspects of the planning and I can say this wedding would not have been nearly as beautiful or as organized without your help.
 
@@ -318,7 +319,7 @@ t.save!
 puts "Training created"
 
 
-s = Speech.new(transcript: 'Dear colleagues,
+s = Speech.new(title: 'Congratulations Speech', transcript: 'Dear colleagues,
   I am very glad to have a chance to deliver my speech on such a pleasant occasion. It is a large honor for me to receive an award for the implementation of the most successful project of this year. I am strongly grateful for this high recognition of the work that was done as far as I believe that every project deserved to be distinguished with this award.
   Being honest, the way to this award and project realization was rather long and not easy. Starting from the moment when the project was only one small idea and until today, much work has been done. Bringing the idea into life required much effort, and many challenges arose on the way. However, every problem that appeared on the way was solved, and every obstacle was overcome. The importance of the project striving to ease the lives of a large number of people was the most powerful stimulus and the driving force, leading to impressive results. However, all of that would have been impossible without the coordinated work of the team that collaborated in order to overpass the barriers and to make the idea function properly.
   Here, I would like to use the chance to express my deep gratitude to the members of the team who were working on this project for the last year. I believe that every participant of the project has made a weighty contribution to the project. It would not be an exaggeration when I say that it is an honor to me to be a manager of such a professional and highly devoted team. Our collective work has resulted in impressive results, and it is an achievement of each team member and project participant. The solution of problems, coming up with new ideas, developing plans were the results of common work and constant collaboration.
