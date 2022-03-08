@@ -15,7 +15,6 @@ class SpeechesController < ApplicationController
 
   def show
     @speech = Speech.find(params[:id])
-    # @teacher_speech = Speech.find(params[:id])
     authorize @speech
   end
 
@@ -26,18 +25,13 @@ class SpeechesController < ApplicationController
       @training = Training.new
       @training.user = current_user
       @speech.training = @training
-      # raise
     else
       @training = Training.find_by(id: params["training"].to_i)
       @speech.training = @training
-      # raise
     end
-    # byebug
     authorize @speech
-    # @speech.update(status: :pending_payment)
     if @speech.save
-      # byebug
-      redirect_to speech_path(@speech), notice: 'Your speech was saved successfully'
+      redirect_to speech_path(@speech.training.speeches.first), notice: 'Your speech was saved successfully'
     else
       render :new, notice: 'Please try again, your speech could not be saved'
     end
