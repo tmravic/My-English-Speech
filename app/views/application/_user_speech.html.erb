@@ -28,7 +28,7 @@
   <div class="col col-12 col-md-4 text-center">
     <p>Speech audio
       <%# <i class="far fa-trash-alt" ></i>
-  <%= link_to "Delete Speech", speech_path(resource_name), data: { confirm: "Delete speech?" }, method: :delete %>
+  <%= link_to "Delete Speech", speech_path(speech), data: { confirm: "Delete speech?" }, method: :delete %>
     </p>
     <div class="d-flex align-items-center">
       <audio controls src="https://res.cloudinary.com/dqco8z2dj/video/upload/<%= Rails.env %>/<%= speech.audio.key %>.webm"> </audio>
