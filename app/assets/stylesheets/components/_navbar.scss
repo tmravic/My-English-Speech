@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background-color: transparent;
-  height: 70px;
+  height: 90px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -36,32 +36,32 @@
 
 /* Change navbar styling on scroll */
 .navbar.active {
-  background: #fff;
+  background: #454D77;
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.active .nav-link {
-  color: #555;
+  color: white;
 }
 
 .navbar.active .nav-link:hover,
 .navbar.active .nav-link:focus {
-  color: #555;
+  color: white;
   text-decoration: none;
 }
 
 .navbar.active .navbar-brand {
-  color: #555;
+  color: white;
 }
 
 
 /* Change navbar styling on small viewports */
 @media (max-width: 991.98px) {
   .navbar {
-      background: #fff;
+      background: #454D77;
   }
 
   .navbar .navbar-brand, .navbar .nav-link {
-      color: #555;
+      color: white;
   }
 }
