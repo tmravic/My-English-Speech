@@ -3,7 +3,7 @@
     <div class="speech-card-contents">
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-large">
       <p><%= speech.user.first_name %> <%= speech.user.last_name %></p>
-      <%= link_to speech.title, speech_path(speech.id), class:"text-decoration-none", style: "font-weight: bold; font-size: 20px;" %>
+      <%= link_to speech.title.present? ? speech.title : "Response to #{speech.training.speeches[0].title}", speech_path(speech.id), class:"text-decoration-none", style: "font-weight: bold; font-size: 20px;" %>
       <p>Time: <%= speech.seconds %> seconds</p>
       <p>Total price: <%= speech.total_price %>円</p>
       <h3><span class="status-pill <%= speech.status_color %> ">
