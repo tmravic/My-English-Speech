@@ -19,3 +19,10 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
+#index-banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://res.cloudinary.com/dqco8z2dj/image/upload/v1646724180/development/podcasts_xk90gy.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: top;
+}
