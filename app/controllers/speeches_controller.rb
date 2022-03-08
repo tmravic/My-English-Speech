@@ -37,7 +37,7 @@ class SpeechesController < ApplicationController
     # @speech.update(status: :pending_payment)
     if @speech.save
       # byebug
-      redirect_to root_path, notice: 'Your speech was saved successfully'
+      redirect_to speech_path(@speech), notice: 'Your speech was saved successfully'
     else
       render :new, notice: 'Please try again, your speech could not be saved'
     end
