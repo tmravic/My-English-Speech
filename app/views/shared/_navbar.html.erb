@@ -1,7 +1,8 @@
+<!--
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "MyEnglishSpech_logo.jpg" %>
+      <%= image_tag "logo_transparent.png"%>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -23,6 +24,7 @@
             <%#= render 'new_thing' %>
           </li>
           -->
+<!--
           <li class="nav-item dropdown">
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -40,3 +42,46 @@
     </div>
   </div>
 </div>
+-->
+<header class="header">
+  <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-lewagon">
+    <div class="container">
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "logo_transparent.png"%>
+      <% end %>
+      <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+      <div id="navbarSupportedContent" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Speeches", speeches_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "New Speech", new_speech_path, class: "nav-link" %>
+            </li>
+            <!--
+          <li class="nav-item">
+            <%#= render 'new_thing' %>
+          </li>
+          -->
+            <li class="nav-item dropdown">
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Action", "#", class: "dropdown-item" %>
+                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
