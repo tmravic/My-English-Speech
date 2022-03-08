@@ -11,6 +11,8 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
+import navbar from "./navbar.js"
 import "controllers"
 import "bootstrap"
+
+navbar()
