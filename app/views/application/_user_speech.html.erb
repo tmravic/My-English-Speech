@@ -11,29 +11,15 @@
     <h2 class="text-center"> <%= speech.user.teacher? ? "Teacher speech" : "Student speech" %></h2>
   </div>
   <div class="col col-md-4">
-    <%#= cl_image_tag speech.user.photo.key, class: "avatar-large", style: "position:absolute;right:0;top:21px;" %>
+    <%= cl_image_tag speech.user.photo.key, class: "avatar-large", style: "position:absolute;right:0;top:21px;" %>
     <p style="position:absolute;right:0;top:0;">Speech by <%= speech.user.first_name%> </p>
   </div>
 </div>
-
-<div class="col col-12 col-md-4 text-center">
-  <p>Speech audio
-    <i class="far fa-trash-alt" ></i>
-    <%= link_to "Delete Speech", speech_path(speech), data: { confirm: "Delete speech?" }, method: :delete %>
-  </p>
-  <div class="d-flex align-items-center">
-    <audio controls src="<%=cloudinary_url(speech.audio.key, :resource_type=>"video")%>"> </audio>
-
 <div class="row py-2">
   <div class="col col-12 col-md-4 text-center">
-    <p>Speech audio
-      <%# <i class="far fa-trash-alt" ></i>
-  <%= link_to "Delete Speech", speech_path(speech), data: { confirm: "Delete speech?" }, method: :delete %>
-    </p>
+    <p>Speech audio <%= link_to "", speech_path(speech), data: { confirm: "Delete speech?" }, method: :delete, class: "far fa-trash-alt" %></p>
     <div class="d-flex align-items-center">
       <audio controls src="https://res.cloudinary.com/dqco8z2dj/video/upload/<%= Rails.env %>/<%= speech.audio.key %>.webm"> </audio>
-      <%# file_id and format needs to be fetched dynamically %>
-      <%# https://res.cloudinary.com/dqco8z2dj/video/upload/file_id/development/yiofka9rk8e22mj3p1no7xl33qgu.mp3 %>
     </div>
   </div>
   <div class="col col-12 col-md-4 text-center">
@@ -53,6 +39,5 @@
     </p>
     <%= render 'speeches/edit_modal', id: "speech_notes_#{speech.id}", speech: speech, transcript: false  %>
     <div class="w-100 overflow-auto my-2 bg-white"><%= speech.notes %></div>
-
   </div>
 </div>
