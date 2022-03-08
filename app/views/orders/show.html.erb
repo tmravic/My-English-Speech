@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row py-4">
+  <div class="row py-5 mt-5">
     <div class="col-md-3"><%= cl_image_tag @order.speech.user.photo.key, width: '100%' %></div>
     <div class="col">
       <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
@@ -7,10 +7,14 @@
         <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
         <li><strong>SPEECH</strong> <%= @order.speech.title %></li>
         <%#= @order.teddy_sku %>
-        <li><strong>TOTAL</strong> <%= @order.speech.total_price %></li>
+        <li><strong>TOTAL</strong> <%= @order.speech.total_price %>円</li>
       </li>
     </ul>
     <p>Estimated delivery in <strong>1 business day</strong></p>
+    <p>Thank you for your business!</p>
+    <%= link_to "Home", root_path, class: "btn btn-secondary" %>
+    <%= link_to "Speeches", speeches_path, class: "btn btn-orange" %>
+    <%= link_to "This speech", speech_path(@order.speech), class: "btn btn-purple" %>
   </div>
 </div>
 </div>

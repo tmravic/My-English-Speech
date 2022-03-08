@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="row py-4">
+  <div class="row py-5 mt-5">
     <div class="col-md-3">
       <%= cl_image_tag @order.speech.user.photo.key %>
     </div>
     <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.speech.seconds %></strong> for <strong><%= @order.speech.total_price %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
+      <h1>Please confirm your order</h1>
+      <p>Purchase of <strong><%= @order.speech.seconds %></strong> seconds of speech time for <strong><%= @order.speech.total_price %>円</strong> for the speech "<%= @order.speech.title %>".</p>
+      <button id="pay" class="btn btn-purple">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
