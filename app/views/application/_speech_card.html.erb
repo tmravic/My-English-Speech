@@ -2,10 +2,10 @@
   <div class="speech-card">
     <div class="speech-card-contents">
       <%= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
-      <p><%= speech.user.first_name %> <%= speech.user.last_name %></p>
+      <p class=><%= speech.user.first_name %> <%= speech.user.last_name %></p>
       <%= link_to speech.title.present? ? speech.title : "Response to #{speech.training.speeches[0].title}", speech_path(speech.id), class:"text-decoration-none", style: "font-weight: bold; font-size: 20px;" %>
-      <p>Time: <%= speech.seconds %> seconds</p>
-      <p>Total price: <%= speech.total_price %>円</p>
+      <p><%= speech.seconds %> seconds &mdash; <%= speech.total_price %>円</p>
+      <%# <p>Total price: </p> %>
       <h3><span class="status-pill <%= speech.status_color %> ">
           <%= speech.current_status %></span></h3>
       <img src="https://www.nicepng.com/png/full/131-1314805_radio-spot-icon-mike-icons.png" class="avatar-large">
