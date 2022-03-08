@@ -2,7 +2,6 @@ body{
   background-color: #FFFCF2;
 }
 
-
 .card-product {
   overflow: hidden;
   height: 120px;
@@ -51,11 +50,17 @@ body{
   flex-grow: 1;
   background: white;
   height: 300px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.3);
 }
 
 .speech-card p {
   margin-bottom: 0.3rem;
+}
+
+.speech-card:hover {
+  transition: 0.2s ease-out;
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .container-speech{
