@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
+
 Speech.destroy_all
 Training.destroy_all
 User.destroy_all
 puts "\n...create admin users!"
+
 
 #
 u = User.create!(first_name: "Admin", last_name: "Admin", password: "123456", email: "admin@admin.com", teacher: true)
@@ -151,10 +153,23 @@ u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
 puts "user created"
 
+t = Training.create!( user_id: u.id )
+t.save!
+puts "Training created"
+
+s = Speech.new(transcript: ' Hello everyone' , notes: ' This is my speech ', user_id: u.id, training_id: t.id )
+file = URI.open('https://res.cloudinary.com/dpyl9bage/video/upload/v1646705662/development/ox3ps4nokhjokwezpdj5pklq72ii.webm')
+s.audio.attach(io: file, filename: 'speech_audio.webm', content_type: 'video/webm')
+s.save!
+puts "Speech created"
+
+# https://res.cloudinary.com/dpyl9bage/video/upload/v1646705662/development/ox3ps4nokhjokwezpdj5pklq72ii.wav
+
+# https://res.cloudinary.com/dpyl9bage/video/upload/v1646705662/development/ox3ps4nokhjokwezpdj5pklq72ii.mp3
 
 # CREATING FAKE SPEECHES
 
-# speeches.each do |speeches|
+# user.each do |speeches|
 #     s = Speech.new(
 #       title: ,
 #       length: (1..10).sample,
