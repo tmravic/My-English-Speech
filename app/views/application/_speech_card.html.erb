@@ -1,7 +1,7 @@
 <div class="container-card d-flex position-relative text-center">
   <div class="speech-card">
     <div class="speech-card-contents">
-      <%#= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
+      <%= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
       <p><%= speech.user.first_name %> <%= speech.user.last_name %></p>
       <%= link_to speech.title.present? ? speech.title : "Response to #{speech.training.speeches[0].title}", speech_path(speech.id), class:"text-decoration-none", style: "font-weight: bold; font-size: 20px;" %>
       <p>Time: <%= speech.seconds %> seconds</p>
