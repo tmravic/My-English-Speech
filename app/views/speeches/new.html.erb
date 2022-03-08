@@ -33,7 +33,7 @@
           <div class="row">
             <button data-action="click->recording#record" class="my-2 fas fa-microphone-alt big-icon audio-button" data-recording-target="start_recording" type="button"></button>
             <button data-action="click->recording#stop_recording" class="my-2 fas fa-assistive-listening-systems d-none big-icon audio-button" data-recording-target="ear" type="button"></button>
-            <button data-action="click->recording#record" class="my-2 far fa-check-circle d-none big-icon audio-button text-success" data-recording-target="start_playback" type="button"></button>
+            <button data-action="click->recording#record" class="my-2 far fa-check-circle d-none big-icon audio-button text-white" data-recording-target="start_playback" type="button"></button>
             <div class="col">
               <article class="clip my-2 d-flex justify-content-center d-none"
               data-recording-target="clip">
@@ -45,10 +45,10 @@
                   data-recording-target="stop_recording" type="button">Stop Recording</button>
                 <button class="btn btn-danger d-none" type="button"
                   data-recording-target="stop_playback">Stop Playback</button>
-                <button class="btn btn-info d-none" type="button"
+                <button class="btn btn-purple d-none" type="button"
                   data-action="click->recording#reset"
                   data-recording-target="reset_playback">Reset</button>
-                <%= f.button :submit, "Upload", class: "btn btn-primary d-none", style: "opacity:1;",
+                <%= f.button :submit, "Upload", class: "btn btn-orange d-none", style: "opacity:1;",
                 data: { recording_target: 'upload', action: "click->recording#upload" } %>
                 <%# <%= f.input :file, as: :file, class: "d-none" %>
                 <%= link_to "Back Home", root_path, class: "btn btn-secondary", style: "font-family: 'Lato', sans-serif;font-weight: 300;" %>

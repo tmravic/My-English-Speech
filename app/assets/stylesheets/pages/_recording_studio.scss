@@ -47,6 +47,9 @@
   }
 }
 
+$official-orange: #A44200;
+$official-purple: #613F75;
+
 .audio-button {
   background-color: rgba(0,0,0,0);
   padding: 0;
@@ -73,6 +76,14 @@
   background-color: #F4F4F4;
   border-radius: 10px;
   border: 1px solid #CED4DA;
+}
+.btn-purple {
+  background-color: $official-purple;
+  color: white;
+}
+.btn-orange {
+  background-color: $official-orange;
+  color: white;
 }
 
 
