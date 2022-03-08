@@ -63,6 +63,7 @@
 }
 
 .recording-card {
+  margin-top: 10px;
   padding-top: 10px;
   background-color: #FFFCF2;
   border-radius: 10px;
@@ -88,6 +89,9 @@
   }
   #recording-studio-body {
     height: 135vh;
+  }
+  .recording-card {
+    margin-top: 50px;
   }
 }
 
