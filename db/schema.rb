@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_070635) do
   create_table "speeches", force: :cascade do |t|
     t.string "title"
     t.integer "length"
+    t.integer "status", default: 0
     t.bigint "user_id", null: false
     t.bigint "training_id", null: false
     t.text "notes"
