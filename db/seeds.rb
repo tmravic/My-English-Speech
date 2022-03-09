@@ -41,11 +41,11 @@ file = URI.open('https://res.cloudinary.com/dqco8z2dj/image/upload/v1646625503/t
 u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
 puts "user created"
-User.create!(first_name: "Hideyoshi", last_name: "Toyotomi", password: "123456", email:"hidetoyo@yahoo.co.jp", teacher: false)
-file = URI.open("https://res.cloudinary.com/dqco8z2dj/image/upload/v1646830417/hideyoshi_zcjfz2.png")
-u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
-u.save!
-puts "user created"
+# User.create!(first_name: "Hideyoshi", last_name: "Toyotomi", password: "123456", email:"hidetoyo@yahoo.co.jp", teacher: false)
+# file = URI.open("https://res.cloudinary.com/dqco8z2dj/image/upload/v1646830417/hideyoshi_zcjfz2.png")
+# u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
+# u.save!
+# puts "user created"
 u = User.create!(first_name: "Shintaro", last_name: "Suzuki", password: "123456", email:"s.shintaro@yahoo.co.jp", teacher: false)
 file = URI.open("https://res.cloudinary.com/dqco8z2dj/image/upload/v1646626079/800px-Hideo_Higashikokubaru_2007_1216_gjcimo.jpg")
 u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
