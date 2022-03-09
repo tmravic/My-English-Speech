@@ -12,13 +12,13 @@ class OrdersController < ApplicationController
         currency: 'jpy',
         quantity: 1
       }],
-      success_url: order_path(order),
-      cancel_url: order_path(order)
+      success_url: order_url(order),
+      cancel_url: order_url(order)
     )
 
     order.update(checkout_session_id: session.id)
     authorize order
-    redirect_to new_order_payment_path(order)
+    redirect_to new_order_payment_url(order)
   end
 
   def show
