@@ -12,8 +12,8 @@ class OrdersController < ApplicationController
         currency: 'jpy',
         quantity: 1
       }],
-      success_url: order_url(order),
-      cancel_url: order_url(order)
+      success_url: order_path(order),
+      cancel_url: order_path(order)
     )
 
     order.update(checkout_session_id: session.id)
