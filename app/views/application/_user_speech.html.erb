@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row my-3">
   <div class="col-12">
     <h2 class="text-center"> <%= speech.user.teacher? ? "Teacher speech" : "Student speech" %></h2>
   </div>
@@ -8,36 +8,44 @@
   </div>
 </div>
 <div class="row py-2">
-  <div class="col col-12 col-md-4 text-center" style="position:relative;">
-    <%= cl_image_tag speech.user.photo.key, class: "avatar-large", style: "position:absolute;left:0;top:0;" %>
-    <h5 class="fw-bold">Speech audio <%= link_to "", speech_path(speech), data: { confirm: "Delete speech?" }, method: :delete, class: "far fa-trash-alt text-black" %></h5>
-    <p class="text-left" style="">Speech by <%= speech.user.first_name%> </p>
-    <div class="d-flex align-items-center">
-      <audio controls src="https://res.cloudinary.com/dqco8z2dj/video/upload/<%= Rails.env %>/<%= speech.audio.key %>.webm"> </audio>
+  <div class="col col-12 col-md-4 text-center">
+    <div class="shadow">
+      <h5 class="fw-bold">Speech audio <%= link_to "", speech_path(speech), data: { confirm: "Delete speech?" }, method: :delete, class: "far fa-trash-alt text-white" %></h5>
+      <div class="d-flex justify-content-start align-items-center">
+        <%= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
+        <p style="margin-left: 5px;margin-top:10px;">Speech by <%= speech.user.first_name%> </p>
+      </div>
+      <div class="d-flex align-items-center my-4">
+        <audio controls src="https://res.cloudinary.com/dqco8z2dj/video/upload/<%= Rails.env %>/<%= speech.audio.key %>.webm"> </audio>
+      </div>
+      <% if current_user == speech.user && !current_user.teacher && !speech.paid_order %>
+        <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'speech_id', speech.id %>
+          <%= submit_tag 'Make payment', class: "btn btn-primary", style: "color:white;", id: "pay" %>
+        <% end %>
+      <% end %>
     </div>
-    <% if current_user == speech.user && !current_user.teacher %>
-      <%= form_tag orders_path do %>
-        <%= hidden_field_tag 'speech_id', speech.id %>
-        <%= submit_tag 'Make payment', class: "btn btn-primary my-3", style: "color:white;", id: "pay" %>
-      <% end %>
-    <% end %>
   </div>
   <div class="col col-12 col-md-4 text-center">
-    <h5 class="fw-bold">Transcript
-      <% if current_user == speech.user %>
-        <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_transcript_<%=speech.id%>"></i>
-      <% end %>
-    </h5>
-    <%= render 'speeches/edit_modal', id: "speech_transcript_#{speech.id}", speech: speech, transcript: true  %>
-    <div class="w-100 overflow-auto my-2 bg-white"><%= speech.transcript %></div>
+    <div class="shadow white">
+      <h5 class="fw-bold">Transcript
+        <% if current_user == speech.user %>
+          <i class="fas fa-pencil-alt text-dark" data-bs-toggle="modal" data-bs-target="#speech_transcript_<%=speech.id%>"></i>
+        <% end %>
+      </h5>
+      <%= render 'speeches/edit_modal', id: "speech_transcript_#{speech.id}", speech: speech, transcript: true  %>
+      <div class="w-100 overflow-auto my-2"><%= speech.transcript %></div>
+    </div>
   </div>
   <div class="col col-12 col-md-4 text-center">
-    <h5 class="fw-bold">Notes
-      <% if current_user == speech.user %>
-        <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_notes_<%=speech.id%>"></i>
-      <% end %>
-    </h5>
-    <%= render 'speeches/edit_modal', id: "speech_notes_#{speech.id}", speech: speech, transcript: false  %>
-    <div class="w-100 overflow-auto my-2 bg-white"><%= speech.notes %></div>
+    <div class="shadow light ">
+      <h5 class="fw-bold">Notes
+        <% if current_user == speech.user %>
+          <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_notes_<%=speech.id%>"></i>
+        <% end %>
+      </h5>
+      <%= render 'speeches/edit_modal', id: "speech_notes_#{speech.id}", speech: speech, transcript: false  %>
+      <div class="w-100 overflow-auto my-2"><%= speech.notes %></div>
+    </div>
   </div>
 </div>
