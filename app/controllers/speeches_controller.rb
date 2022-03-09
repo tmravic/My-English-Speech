@@ -10,7 +10,6 @@ class SpeechesController < ApplicationController
     if current_user.teacher? && params["training"].present?
       @training = Training.find_by(id: params["training"].to_i)
     end
-    # raise
   end
 
   def show

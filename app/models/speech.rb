@@ -21,9 +21,10 @@ class Speech < ApplicationRecord
   # validates :status, presence: true
   # Not using this anymore
   enum status: {
-    pending_payment: 0,
-    awaiting_correction: 1,
-    corrected: 2
+    "Normal (24 hours - 5円/s)": 0,
+    "Fast (18 hours - 7円/s)": 1,
+    "Faster (12 hours - 9円/s)": 2,
+    "Fastest (16 hours - 10円/s)": 3
   }
 
   def current_status
