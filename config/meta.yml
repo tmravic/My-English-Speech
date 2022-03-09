@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "MyEnglishSpeech"
+meta_title: "MyEnglishSpeech - Your Words Perfected!"
+meta_description: "When you need your English corrected, what can you do? If you don't have teacher or native speaker on hand, look no further than MyEnglishSpeech. Get corrections to your grammar and pronunciation so that your English sounds perfect!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
