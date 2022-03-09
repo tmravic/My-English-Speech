@@ -2,7 +2,7 @@ class Speech < ApplicationRecord
   belongs_to :user
   belongs_to :training
   has_one_attached :audio, dependent: :destroy
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   validates :title, format: { with: /[a-zA-Z0-9]/, message: "must be in English only" }, presence: true
 
