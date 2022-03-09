@@ -1,5 +1,6 @@
 #recording-studio-body {
-  height: 100vh;
+  // height: 100vh;
+  padding: 10px 0;
   background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://res.cloudinary.com/dqco8z2dj/image/upload/v1646563010/recording_studio_tkzg5o.jpg);
   // background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://res.cloudinary.com/dqco8z2dj/image/upload/v1646617547/recording_studio2_dxdpd0.jpg);
   background-position: right;
@@ -11,6 +12,9 @@
     font-family: 'Lato', sans-serif !important;
     font-weight: 300;
     margin: 0.2rem 0;
+  }
+  h1 {
+    text-shadow: 1px 1px 2px #A44200, 0 0 1em blue, 0 0 0.2em blue;
   }
   h3 {
     font-weight: 400;
@@ -99,7 +103,7 @@ $official-purple: #613F75;
     font-size: 24px;
   }
   #recording-studio-body {
-    height: 135vh;
+    // height: 135vh;
   }
 }
 
@@ -115,7 +119,7 @@ $official-purple: #613F75;
     font-size: 24px;
   }
   #recording-studio-body {
-    height: 135vh;
+    // height: 135vh;
   }
 }
 
