@@ -5,7 +5,7 @@
   background-position: right;
   background-size: contain;
   background-repeat: no-repeat;
-  h1, h2, h3, p, h4, label {
+  h1, h2, h3, p, h4 {
     text-align: center;
     // color: #fff;
     font-family: 'Lato', sans-serif !important;
@@ -67,8 +67,7 @@ $official-purple: #613F75;
 }
 
 .recording-card {
-  margin-top: 10px;
-  padding-top: 10px;
+  padding: 25px;
   background-color: #FFFCF2;
   border-radius: 10px;
 }
@@ -101,9 +100,6 @@ $official-purple: #613F75;
   }
   #recording-studio-body {
     height: 135vh;
-  }
-  .recording-card {
-    margin-top: 50px;
   }
 }
 
