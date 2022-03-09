@@ -62,6 +62,11 @@
             <li class="nav-item">
               <%= link_to "New Speech", new_speech_path, class: "nav-link" %>
             </li>
+            <% if current_user.teacher?%>
+              <p class="nav-p">You are teacher!</p>
+            <% else %>
+              <p class="nav-p">Welcome <%= current_user.first_name %>!</p>
+            <% end %>
             <!--
           <li class="nav-item">
             <%#= render 'new_thing' %>
