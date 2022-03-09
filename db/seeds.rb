@@ -42,7 +42,7 @@ u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
 puts "user created"
 User.create!(first_name: "Hideyoshi", last_name: "Toyotomi", password: "123456", email:"hidetoyo@yahoo.co.jp", teacher: false)
-file = URI.open("https://res.cloudinary.com/dqco8z2dj/image/upload/v1646625536/800px-Takeshi_Kitano_2017_sh0htn.jpg")
+file = URI.open("https://res.cloudinary.com/dqco8z2dj/image/upload/v1646830417/hideyoshi_zcjfz2.png")
 u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
 puts "user created"
