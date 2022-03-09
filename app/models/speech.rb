@@ -4,6 +4,19 @@ class Speech < ApplicationRecord
   has_one_attached :audio, dependent: :destroy
   has_many :orders
 
+  validates :title, format: { with: /[a-zA-Z0-9]/, message: "must be in English only" }, presence: true
+
+  validates :transcript, format: { with: /[a-zA-Z0-9]/, message: "must be in English only" } , presence: true
+
+  validates :notes, format: { with: /[a-zA-Z0-9]/, message: "must be in English only" }, presence: true
+
+
+  # with_options presence: true, format: { with: /[a-zA-Z0-9]/, message: 'Plese use English only' } do
+  #   validates :title
+  #   validates :transcript
+  #   validates :notes
+  # end
+
 
   # validates :status, presence: true
   # Not using this anymore
