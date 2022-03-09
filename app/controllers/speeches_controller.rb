@@ -53,7 +53,7 @@ class SpeechesController < ApplicationController
     @speech = Speech.find(params[:id])
     authorize @speech
     @speech.destroy
-    redirect_to speeches_url, notice: 'Your speech was successfully deleted.'
+    redirect_to speeches_path, notice: 'Your speech was successfully deleted.'
   end
 
   private
