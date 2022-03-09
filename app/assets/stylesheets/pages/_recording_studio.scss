@@ -1,3 +1,6 @@
+$official-orange: #A44200;
+$official-purple: #613F75;
+$official-white: #FFFCF2;
 #recording-studio-body {
   // height: 100vh;
   padding: 10px 0;
@@ -14,7 +17,7 @@
     margin: 0.2rem 0;
   }
   h1 {
-    text-shadow: 1px 1px 2px #A44200, 0 0 1em blue, 0 0 0.2em blue;
+    text-shadow: 1px 1px 2px $official-orange, 0 0 1em $official-purple, 0 0 0.2em $official-white;
   }
   h3 {
     font-weight: 400;
@@ -50,10 +53,6 @@
     height: 150px;
   }
 }
-
-
-$official-orange: #A44200;
-$official-purple: #613F75;
 
 .audio-button {
   background-color: rgba(0,0,0,0);
@@ -102,6 +101,9 @@ $official-purple: #613F75;
   #recording-studio-body h1 {
     font-size: 24px;
   }
+  #recording-studio-body h3 {
+    font-size: 18px;
+  }
   #recording-studio-body {
     // height: 135vh;
   }
@@ -117,6 +119,9 @@ $official-purple: #613F75;
   }
   #recording-studio-body h1 {
     font-size: 24px;
+  }
+  #recording-studio-body h3 {
+    font-size: 16px;
   }
   #recording-studio-body {
     // height: 135vh;

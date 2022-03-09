@@ -1,11 +1,12 @@
 <div class="container-card d-flex position-relative text-center">
   <div class="speech-card">
     <div class="speech-card-contents">
-      <%= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
-      <p class=><%= speech.user.first_name %> <%= speech.user.last_name %></p>
+      <% if current_user.teacher? %>
+        <%= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
+        <p class=><%= speech.user.first_name %> <%= speech.user.last_name %></p>
+      <% end %>
       <%= link_to speech.title.present? ? speech.title : "Response to #{speech.training.speeches[0].title}", speech_path(speech.id), class:"text-decoration-none", style: "font-weight: bold; font-size: 20px;" %>
-      <p><%= speech.status.nil? ? "Nil" : speech.status %></p>
-      <p><%= speech.seconds %> seconds &mdash; <%= speech.total_price %>円</p>
+      <p><%= pluralize speech.seconds, "second" %> &mdash; <%= speech.total_price %>円</p>
       <h3><span class="status-pill <%= speech.status_color %> ">
           <%= speech.current_status %></span></h3>
       <% if speech.current_status.include?("Corrected by") %>
