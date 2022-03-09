@@ -128,7 +128,7 @@ file = URI.open("https://res.cloudinary.com/dqco8z2dj/image/upload/v1646628367/k
 u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
 puts "user created"
-u = User.create!(first_name: "Kana", last_name: "Kurashina", password: "123456", email:"hashikan@yahoo.co.jp", teacher: false)
+u = User.create!(first_name: "Kana", last_name: "Kura", password: "123456", email:"hashikan@yahoo.co.jp", teacher: false)
 file = URI.open("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4lfxz4MKbcvH4lL97vLldTNb7qC.jpg")
 u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
