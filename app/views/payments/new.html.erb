@@ -1,21 +1,25 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(	https://img.freepik.com/free-vector/payment-information-concept-illustration_114360-2886.jpg?w=1060);">
+  <div class="container">
+    <h1>Please confirm your order</h1>
+  </div>
+</div>
 <div class="container">
   <div class="row py-5 mt-5">
     <div class="col">
-    <div class="row my-4 p-4 card_box text-center" >
-      <h1>Please confirm your order</h1>
-      <p>Purchase of <strong><%= @order.speech.seconds %></strong> seconds of speech time for <strong><%= @order.speech.total_price %>円</strong> for the speech "<%= @order.speech.title %>".</p>
-      <button id="pay" class="btn btn-purple mb-3">Pay</button>
-      <%= link_to "Cancel", new_speech_path, class:"btn btn-orange mb-3" %>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
+      <div class="row my-4 p-4 card_box text-center" >
+        <p>Purchase of <strong><%= @order.speech.seconds %></strong> seconds of speech time for <strong><%= @order.speech.total_price %>円</strong> for the speech "<%= @order.speech.title %>".</p>
+        <button id="pay" class="btn btn-purple mb-3">Pay</button>
+        <%= link_to "Cancel", new_speech_path, class:"btn btn-orange mb-3" %>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @order.checkout_session_id %>'
+            });
           });
-        });
-      </script>
+        </script>
       </div>
     </div>
   </div>
