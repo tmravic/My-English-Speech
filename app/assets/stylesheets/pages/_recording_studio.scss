@@ -47,6 +47,7 @@
   }
 }
 
+
 $official-orange: #A44200;
 $official-purple: #613F75;
 
@@ -120,4 +121,12 @@ $official-purple: #613F75;
   #recording-studio-body {
     height: 135vh;
   }
+}
+
+html{
+  background-color: #454D77;
+}
+
+#recording-studio-body h1, #recording-studio-body .h1{
+  margin-top: 90px;
 }
