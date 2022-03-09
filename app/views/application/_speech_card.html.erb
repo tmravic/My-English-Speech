@@ -2,7 +2,9 @@
   <div class="speech-card">
     <div class="speech-card-contents">
       <% if current_user.teacher? %>
-        <%= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
+        <% if speech.user.photo.attached? %>
+          <%= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
+        <% end %>
         <p class=><%= speech.user.first_name %> <%= speech.user.last_name %></p>
       <% end %>
       <%= link_to speech.title.present? ? speech.title : "Response to #{speech.training.speeches[0].title}", speech_path(speech.id), class:"text-decoration-none", style: "font-weight: bold; font-size: 20px;" %>

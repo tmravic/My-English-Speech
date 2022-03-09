@@ -6,7 +6,7 @@ class Speech < ApplicationRecord
 
   validates :title, format: { with: /[a-zA-Z0-9]/, message: "must be in English only" }, presence: true
 
-  validates :transcript, format: { with: /[a-zA-Z0-9]/, message: "must be in English only" } , presence: true
+  validates :transcript, format: { with: /[a-zA-Z0-9]/, message: "must be in English only" }, presence: true
 
   validates :notes, format: { with: /[a-zA-Z0-9]/, message: "must be in English only" }, presence: true
 

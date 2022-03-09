@@ -12,7 +12,9 @@
     <div class="shadow">
       <h5 class="fw-bold">Speech audio <%= link_to "", speech_path(speech), data: { confirm: "Delete speech?" }, method: :delete, class: "far fa-trash-alt text-white" %></h5>
       <div class="d-flex justify-content-start align-items-center">
-        <%= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
+        <% if speech.user.photo.attached? %>
+          <%= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
+        <% end %>
         <p style="margin-left: 10px;margin-top:10px;">Speech by <%= speech.user.first_name%> </p>
       </div>
       <div class="d-flex align-items-center my-4">
