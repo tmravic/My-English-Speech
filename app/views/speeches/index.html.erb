@@ -8,7 +8,19 @@
     <div class="container-speech">
       <% @speeches.each do |speech| %>
         <% unless speech.title.nil? %>
-          <%= render 'speech_card', speech: speech %>
+          <% unless speech.current_status.include?("Corrected by") %>
+            <%= render 'speech_card', speech: speech %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <h1 class="text-center py-3"> &mdash;&mdash; History &mdash;&mdash;</h1>
+    <div class="container-speech">
+      <% @speeches.each do |speech| %>
+        <% unless speech.title.nil? %>
+          <% if speech.current_status.include?("Corrected by") %>
+            <%= render 'speech_card', speech: speech %>
+          <% end %>
         <% end %>
       <% end %>
     </div>

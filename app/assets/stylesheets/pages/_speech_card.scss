@@ -41,7 +41,6 @@ body{
   border-radius: 50%;
 }
 
-
 .speech-card {
   position: relative;
   padding: 25px;
@@ -111,9 +110,6 @@ body{
   border-radius: 10px;
   padding: 5px 8px;
   font-size: 14px;
-  // position: absolute;
-  // top: 5px;
-  // left: 5px;
   &.recorded{
     background-color: #576091;
   }
