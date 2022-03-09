@@ -23,7 +23,7 @@
         <%= link_to "Back to my speeches", speeches_path, class: "btn btn-secondary p-3 my-2" %>
       </div>
     </div>
-    <% @speech.training.speeches.each do |speech| %>
+    <% @speech.training.speeches.reverse_each do |speech| %>
       <div class="row my-4 p-4 speech_box" >
         <%= render 'user_speech', speech: speech %>
       </div>
