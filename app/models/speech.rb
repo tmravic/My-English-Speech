@@ -15,7 +15,7 @@ class Speech < ApplicationRecord
 
   def current_status
     if corrected_by_teacher?
-      "Corrected by teacher"
+      "Corrected by #{self.training.speeches.last.user.first_name}"
     elsif paid_order
       "Awaiting correction"
     else

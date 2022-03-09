@@ -11,7 +11,7 @@
     <h2 class="text-center"> <%= speech.user.teacher? ? "Teacher speech" : "Student speech" %></h2>
   </div>
   <div class="col col-md-4">
-    <%= cl_image_tag speech.user.photo.key, class: "avatar-large", style: "position:absolute;right:0;top:21px;" %>
+    <%= cl_image_tag speech.user.photo.key, class: "avatar-large", style: "position:absolute;right:0;top:25px;" %>
     <p style="position:absolute;right:0;top:0;">Speech by <%= speech.user.first_name%> </p>
   </div>
 </div>
