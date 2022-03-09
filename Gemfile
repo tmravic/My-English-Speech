@@ -38,6 +38,7 @@ gem 'pundit'
 gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
+gem "turbolinks_render"
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
