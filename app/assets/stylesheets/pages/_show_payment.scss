@@ -1,8 +1,20 @@
+.container-order{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  border-radius: 8px;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  height: 500px;
+  }
+
 .card-order {
   background-color: white;
   font-family: 'Lato', sans-serif;
-  width: 100%;
-
+  width: 700px;
+  height: 400px;
   p {
     color: #662D91;
   }
@@ -30,5 +42,14 @@
 }
 
 .card-contents{
+ justify-content: space-around;
+  }
+
+.contentnts-list{
   text-align: start;
+}
+
+.row-button{
+  justify-content: space-around;
+  text-align: center;
 }
