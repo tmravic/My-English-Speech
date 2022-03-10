@@ -25,7 +25,10 @@
   padding: 15px;
   background-color: #454D77;
   color: #fff;
-  height: 100%;
+  height: 315px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
   &.light {
     background-color: #d8d8d8;
     color: rgb(0, 0, 0);
@@ -35,9 +38,18 @@
     color: rgb(0, 0, 0);
   }
 }
+.shadow::-webkit-scrollbar {
+  display: none;
+}
 
 #speech-title {
   margin: 7px 5px;
+}
+
+.speech-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0px;
 }
 
 .speech-icon {

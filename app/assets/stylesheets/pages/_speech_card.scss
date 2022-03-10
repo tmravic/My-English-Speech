@@ -46,7 +46,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  padding: 25px;
   border-radius: 8px;
   -webkit-box-flex: 1;
   flex-grow: 1;
@@ -113,6 +113,7 @@ body{
   border-radius: 10px;
   padding: 5px 8px;
   font-size: 14px;
+
   &.recorded{
     background-color: #576091;
   }
