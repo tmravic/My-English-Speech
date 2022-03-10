@@ -5,13 +5,6 @@
 </div>
 <div id="one-speech-body">
   <div class="container">
-    <div class="row justify-content-between align-items-center">
-      <div class="col col-md-4">
-      </div>
-      <div class="col col-md-4 text-center">
-        
-      </div>
-    </div>
     <% @speech.training.speeches.reverse_each do |speech| %>
       <div class="row my-4 p-4 speech_box" >
         <%= render 'user_speech', speech: speech %>
