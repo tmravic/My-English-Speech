@@ -5,16 +5,27 @@
 </div>
 <div id="index-body">
   <div class="container my-5">
+    <h1 class="text-center py-3 index-title"> &mdash; Ready for correction &mdash;</h1>
     <div class="container-speech">
       <% @speeches.each do |speech| %>
         <% unless speech.title.nil? %>
-          <% unless speech.current_status.include?("Corrected by") %>
+          <% unless speech.current_status.include?("Corrected by") || speech.current_status.include?("Awaiting payment") %>
             <%= render 'speech_card', speech: speech %>
           <% end %>
         <% end %>
       <% end %>
     </div>
-    <h1 class="text-center py-3"> &mdash;&mdash; History &mdash;&mdash;</h1>
+    <h1 class="text-center py-3 index-title"> &mdash; Pending payment &mdash;</h1>
+    <div class="container-speech">
+      <% @speeches.each do |speech| %>
+        <% unless speech.title.nil? %>
+          <% if speech.current_status.include?("Awaiting payment") %>
+            <%= render 'speech_card', speech: speech %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <h1 class="text-center py-3 index-title"> &mdash; History &mdash;</h1>
     <div class="container-speech">
       <% @speeches.each do |speech| %>
         <% unless speech.title.nil? %>

@@ -71,11 +71,17 @@ body{
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+.index-title {
+  font-size: 48px !important;
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .container-speech {
     grid-template-columns: 1fr;
+  }
+  .index-title {
+    font-size: 24px !important;
   }
 }
 
@@ -84,12 +90,18 @@ body{
   .container-speech {
     grid-template-columns: 1fr;
   }
+  .index-title {
+    font-size: 32px !important;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .container-speech {
     grid-template-columns: 1fr 1fr;
+  }
+  .index-title {
+    font-size: 40px !important;
   }
 }
 
