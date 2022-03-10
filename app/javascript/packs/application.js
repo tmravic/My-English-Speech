@@ -15,4 +15,6 @@ import navbar from "./navbar.js"
 import "controllers"
 import "bootstrap"
 
-navbar()
+document.addEventListener("turbolinks:load", ()=> {
+navbar();
+})
