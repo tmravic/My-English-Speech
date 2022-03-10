@@ -8,11 +8,6 @@
       <div id="navbarSupportedContent" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-            <% if current_user.teacher?%>
-              <p class="nav-p">Profile: Teacher</p>
-            <% else %>
-              <p class="nav-p">Welcome <%= current_user.first_name %>!</p>
-            <% end %>
             <li class="nav-item active">
               <%= link_to "Home", root_path, class: "nav-link" %>
             </li>
@@ -22,12 +17,17 @@
             <li class="nav-item">
               <%= link_to "New Speech", new_speech_path, class: "nav-link" %>
             </li>
-            <li>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-p text-decoration-none" %>
-            </li>
             <li class="nav-item dropdown">
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <% if current_user.teacher?%>
+                    <p class="nav-p">Profile: Teacher</p>
+                  <% else %>
+                    <p class="nav-p">Welcome <%= current_user.first_name %>!</p>
+                  <% end %>
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                </div>
               <% end %>
             </li>
           <% else %>
