@@ -2,33 +2,48 @@
   <div class="container" data-controller="recording" >
     <h1 class="text-center">Recording Studio</h1>
     <%= simple_form_for @speech do |f| %>
-      <div class="row">
-        <div class="col-12 col-md-6 m-2 recording-card">
-          <% if current_user.teacher? && params["training"].present? %>
+      <div class="row justify-content-around">
+        <% if current_user.teacher? && params["training"].present? %>
+          <div class="col-12 col-md-4 m-2 recording-card dark">
             <div class="correction-details">
-              <h3 class="overflow-auto">Correcting "<%= @training.speeches[0].title %>"</h3>
+              <h3 class="overflow-auto">"<%= @training.speeches[0].title %>"</h3>
               <p>by <%= @training.speeches[0].user.first_name %> <%= @training.speeches[0].user.last_name %></p>
               <form action="/speeches">
                 <input class="d-none" type="text" name="training" value=<%= @training.id %>>
               </form>
+            </div>
+            <div class="correction-details">
               <h3>Student speech transcript:</h3>
               <div class="overflow-auto">
                 <p><%= @training.speeches[0].transcript %></p>
               </div>
+            </div>
+            <div class="correction-details">
               <h3>Student speech notes:</h3>
               <div class="overflow-auto">
                 <p><%= @training.speeches[0].notes %></p>
               </div>
             </div>
-          <% else %>
+          </div>
+          <div class="col-12 col-md-4 m-2 recording-card">
+            <div class="my-3 pb-3">
+              <h4>Correction</h4>
+              <p>by <%= current_user.first_name %> <%= current_user.last_name %> </p>
+            </div>
+            <%= f.input :length, as: :hidden, input_html: { data: { recording_target: "milliseconds" } } %>
+            <%= f.input :transcript, :wrapper_html => { :class => 'text-center fw-bold' } %>
+            <%= f.input :notes, :wrapper_html => { :class => 'text-center fw-bold' } %>
+          </div>
+        <% else %>
+          <div class="col-12 col-md-6 m-2 recording-card">
             <%= f.input :title, :wrapper_html => { :class => 'text-center fw-bold' } %>
             <p>by <%= current_user.first_name %> <%= current_user.last_name %> </p>
-          <% end %>
-          <%= f.input :length, as: :hidden, input_html: { data: { recording_target: "milliseconds" } } %>
-          <%= f.input :transcript, :wrapper_html => { :class => 'text-center fw-bold' } %>
-          <%= f.input :notes, :wrapper_html => { :class => 'text-center fw-bold' } %>
-        </div>
-        <div class="col col-md-5">
+            <%= f.input :length, as: :hidden, input_html: { data: { recording_target: "milliseconds" } } %>
+            <%= f.input :transcript, :wrapper_html => { :class => 'text-center fw-bold' } %>
+            <%= f.input :notes, :wrapper_html => { :class => 'text-center fw-bold' } %>
+          </div>
+        <% end %>
+        <div class="col-md-3">
           <div class="row">
             <button data-action="click->recording#record" class="my-2 fas fa-microphone-alt big-icon audio-button" data-recording-target="start_recording" type="button"></button>
             <button data-action="click->recording#stop_recording" class="my-2 fas fa-assistive-listening-systems d-none big-icon audio-button" data-recording-target="ear" type="button"></button>
@@ -55,7 +70,8 @@
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+</div>
 </div>

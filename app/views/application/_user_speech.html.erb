@@ -29,7 +29,7 @@
       <div class="d-flex align-items-center my-4">
         <audio controls src="https://res.cloudinary.com/dqco8z2dj/video/upload/<%= Rails.env %>/<%= speech.audio.key %>.webm"> </audio>
       </div>
-      <div style="position:relative;">
+      <div>
         <% if current_user == speech.user && !current_user.teacher && !speech.paid_order %>
           <%= form_tag orders_path do %>
             <%= hidden_field_tag 'speech_id', speech.id %>
@@ -41,7 +41,7 @@
             <button class="btn btn-primary p-2 text-white" type="submit">Correct speech</button>
           </form>
         <% elsif current_user == speech.user && !current_user.teacher && speech.paid_order %>
-          <h6 style="position:absolute;bottom:0;right:0;"><%= speech.total_price %>円</h6>
+          <h6 style="text-align: right;"><%= speech.total_price %>円</h6>
         <% end %>
       </div>
     </div>

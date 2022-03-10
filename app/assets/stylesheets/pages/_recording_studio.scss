@@ -73,12 +73,17 @@ $official-white: #FFFCF2;
   padding: 25px;
   background-color: #FFFCF2;
   border-radius: 10px;
+  &.dark {
+    background-color: #F4F4F4;
+  }
 }
 
 .correction-details {
-  background-color: #F4F4F4;
+  background-color: #FFFCF2;
   border-radius: 10px;
   border: 1px solid #CED4DA;
+  padding: 10px;
+  margin: 10px 0;
 }
 .btn-purple {
   background-color: $official-purple;
@@ -134,4 +139,5 @@ html{
 
 #recording-studio-body h1, #recording-studio-body .h1{
   margin-top: 90px;
+  margin-bottom: 20px;
 }
