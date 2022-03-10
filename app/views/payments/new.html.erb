@@ -3,24 +3,27 @@
     <h1>Please confirm your order</h1>
   </div>
 </div>
-<div class="container">
+<div class="container-payments d-flex position-relative text-center">
   <div class="row py-2 mt-2">
     <div class="col">
-      <div class="row my-4 p-4 card_box text-center" >
-        <p>Purchase of <strong><%= @order.speech.seconds %></strong> seconds of speech time for <strong><%= @order.speech.total_price %>円</strong> for the speech "<%= @order.speech.title %>".</p>
-        <button id="pay" class="btn btn-purple mb-3">Pay</button>
-        <%= link_to "Cancel", speeches_path, class:"btn btn-orange mb-3" %>
-        <script src="https://js.stripe.com/v3/"></script>
-        <script>
-          const paymentButton = document.getElementById('pay');
-          paymentButton.addEventListener('click', () => {
-            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-            stripe.redirectToCheckout({
-              sessionId: '<%= @order.checkout_session_id %>'
-            });
-          });
-        </script>
+      <div class="row card_box text-center" >
+        <p>Purchase of <strong><%= @order.speech.seconds %></strong> seconds of speech time for <strong><%= @order.speech.total_price %>円</strong> for the speech.</p>
+        <p>Speech's title: <%= @order.speech.title %></p>
       </div>
     </div>
   </div>
+</div>
+<div class="row-button">
+  <button id="pay" class="col-button col-6 btn btn-purple mb-3">Pay</button>
+  <%= link_to "Cancel", speeches_path, class:"col-button col-6 btn btn-orange mb-3" %>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const paymentButton = document.getElementById('pay');
+    paymentButton.addEventListener('click', () => {
+      const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+      stripe.redirectToCheckout({
+        sessionId: '<%= @order.checkout_session_id %>'
+      });
+    });
+  </script>
 </div>
