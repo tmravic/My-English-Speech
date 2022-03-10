@@ -1,21 +1,35 @@
-<div class="container">
-  <div class="row py-5 mt-5">
-    <div class="col">
-    <div class="row my-4 p-4 card_box text-center" >
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary text-dark"><%= @order.state %></span></small></h1>
-      <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>SPEECH</strong> <%= @order.speech.title %></li>
-        <%#= @order.teddy_sku %>
-        <li><strong>TOTAL</strong> <%= @order.speech.total_price %>円</li>
-      </li>
-    </ul>
-    <p>Estimated delivery in <strong>1 business day</strong></p>
-    <p>Thank you for your business!</p>
-    <%= link_to "Home", root_path, class: "btn btn-secondary mb-3" %>
-    <%= link_to "Speeches", speeches_path, class: "btn btn-orange mb-3" %>
-    <%= link_to "This speech", speech_path(@order.speech), class: "btn btn-purple mb-3" %>
-    </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(	https://img.freepik.com/free-vector/payment-information-concept-illustration_114360-2886.jpg?w=1060);">
+  <div class="container">
+    <h1>Please confirm your payment</h1>
   </div>
 </div>
+<div class="container">
+    <div class="col">
+      <div class="row my-4 p-4 card_box text-center" >
+        <div class="card-order my-3 p-3">
+          <%= image_tag "check.png"%>
+          <p>Order #<%= @order.id %> <span class="badge badge-primary"><%= @order.state %></span></p>
+          <h2>Your payment successful!</h2>
+          <div class="card-contents justify-content-center my-2 p-2 ">
+            <ul>
+              <li class="row justify-content-space-between">
+                <strong>Issued on: </strong><%= @order.created_at.to_date %>
+              </li>
+              <li class="row justify-content-space-between">
+                <strong>Speech's title: </strong><%= @order.speech.title %>
+              </li>
+              <li class="row justify-content-space-between">
+                <strong>Total: </strong><%= @order.speech.total_price %>円
+              </li>
+              <%#= @order.teddy_sku %>
+            </ul>
+          </div>
+          <h2>Estimated delivery in <strong>1 business day</strong></h2>
+          <h2>Thank you for your business!</h2>
+        </div>
+        <%= link_to "Home", root_path, class: "btn btn-secondary mb-3" %>
+        <%= link_to "Speeches", speeches_path, class: "btn btn-orange mb-3" %>
+        <%= link_to "This speech", speech_path(@order.speech), class: "btn btn-purple mb-3" %>
+      </div>
+    </div>
 </div>
