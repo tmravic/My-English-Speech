@@ -59,11 +59,11 @@
                   data-recording-target="stop_recording" type="button">Stop Recording</button>
                 <button class="btn btn-danger d-none" type="button"
                   data-recording-target="stop_playback">Stop Playback</button>
+                <%= f.button :submit, "Upload", class: "btn btn-orange d-none", style: "opacity:1;",
+                data: { recording_target: 'upload', action: "click->recording#upload" } %>
                 <button class="btn btn-purple d-none" type="button"
                   data-action="click->recording#reset"
                   data-recording-target="reset_playback">Reset</button>
-                <%= f.button :submit, "Upload", class: "btn btn-orange d-none", style: "opacity:1;",
-                data: { recording_target: 'upload', action: "click->recording#upload" } %>
                 <%# <%= f.input :file, as: :file, class: "d-none" %>
                 <%= link_to "Back Home", root_path, class: "btn btn-secondary", style: "font-family: 'Lato', sans-serif;font-weight: 300;" %>
               </div>
