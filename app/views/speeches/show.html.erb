@@ -5,7 +5,7 @@
 </div>
 <div id="one-speech-body">
   <div class="container">
-    <% @speech.training.speeches.reverse_each do |speech| %>
+    <% @speech.training.speeches.each do |speech| %>
       <div class="row my-4 p-4 speech_box" >
         <%= render 'user_speech', speech: speech %>
       </div>
