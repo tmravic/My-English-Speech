@@ -3,19 +3,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 25px;
   border-radius: 8px;
   -webkit-box-flex: 1;
   flex-grow: 1;
-  height: 500px;
+  height: 420px;
   }
 
 .card-order {
   background-color: white;
   font-family: 'Lato', sans-serif;
-  width: 700px;
-  height: 400px;
+  width: 600px;
+  height: 380px;
   p {
+    margin: -3px;
     color: #662D91;
   }
 
