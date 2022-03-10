@@ -4,12 +4,12 @@
   </div>
 </div>
 <div class="container">
-  <div class="row py-5 mt-5">
+  <div class="row py-2 mt-2">
     <div class="col">
       <div class="row my-4 p-4 card_box text-center" >
         <p>Purchase of <strong><%= @order.speech.seconds %></strong> seconds of speech time for <strong><%= @order.speech.total_price %>円</strong> for the speech "<%= @order.speech.title %>".</p>
         <button id="pay" class="btn btn-purple mb-3">Pay</button>
-        <%= link_to "Cancel", new_speech_path, class:"btn btn-orange mb-3" %>
+        <%= link_to "Cancel", speeches_path, class:"btn btn-orange mb-3" %>
         <script src="https://js.stripe.com/v3/"></script>
         <script>
           const paymentButton = document.getElementById('pay');
