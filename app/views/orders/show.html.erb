@@ -3,33 +3,38 @@
     <h1>Please confirm your payment</h1>
   </div>
 </div>
-<div class="container">
-    <div class="col">
-      <div class="row my-4 p-4 card_box text-center" >
-        <div class="card-order my-3 p-3">
-          <%= image_tag "check.png"%>
-          <p>Order #<%= @order.id %> <span class="badge badge-primary"><%= @order.state %></span></p>
-          <h2>Your payment successful!</h2>
-          <div class="card-contents justify-content-center my-2 p-2 ">
-            <ul>
-              <li class="row justify-content-space-between">
-                <strong>Issued on: </strong><%= @order.created_at.to_date %>
-              </li>
-              <li class="row justify-content-space-between">
-                <strong>Speech's title: </strong><%= @order.speech.title %>
-              </li>
-              <li class="row justify-content-space-between">
-                <strong>Total: </strong><%= @order.speech.total_price %>円
-              </li>
-              <%#= @order.teddy_sku %>
-            </ul>
-          </div>
-          <h2>Estimated delivery in <strong>1 business day</strong></h2>
-          <h2>Thank you for your business!</h2>
+<div class="container-order d-flex position-relative text-center">
+  <div class="card-order">
+    <div class="card-contents justify-content-center my-2 p-2 ">
+      <%= image_tag "check.png"%>
+      <p>Order #<%= @order.id %> <span class="badge badge-primary"><%= @order.state %></span></p>
+      <h2>Your payment successful!</h2>
+      <div class="card-contents d-flex position-relative text-center">
+        <div class="contentnts-list">
+          <ul>
+            <li class="row">
+              <strong>Issued on: </strong><%= @order.created_at.to_date %>
+            </li>
+            <li class="row">
+              <strong>Speech's title: </strong><%= @order.speech.title %>
+            </li>
+            <li class="row">
+              <strong>Total: </strong><%= @order.speech.total_price %>円
+            </li>
+            <%#= @order.teddy_sku %>
+          </ul>
         </div>
-        <%= link_to "Home", root_path, class: "btn btn-secondary mb-3" %>
-        <%= link_to "Speeches", speeches_path, class: "btn btn-orange mb-3" %>
-        <%= link_to "This speech", speech_path(@order.speech), class: "btn btn-purple mb-3" %>
       </div>
     </div>
+    <h2>Estimated delivery in <strong>1 business day</strong></h2>
+    <h2>Thank you for your business!</h2>
+  </div>
+</div>
+<div class="row-button">
+  <div class="col-button">
+  <%= link_to "Home", root_path, class: "btn btn-secondary col-6 mb-3" %>
+  <%= link_to "Speeches", speeches_path, class: "btn btn-orange col-6 mb-3" %>
+  <%= link_to "This speech", speech_path(@order.speech), class: "btn btn-purple col-6 mb-3" %>
+  </div>
+</div>
 </div>
