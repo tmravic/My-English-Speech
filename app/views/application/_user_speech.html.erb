@@ -10,12 +10,21 @@
 <div class="row py-2">
   <div class="col col-12 col-md-4 text-center">
     <div class="shadow">
-      <h5 class="fw-bold">Speech audio <%= link_to "", speech_path(speech), data: { confirm: "Delete speech?" }, method: :delete, class: "far fa-trash-alt text-white" %></h5>
+      <h5 class="fw-bold">Speech audio</h5>
+      <% if current_user == speech.user %>
+        <%= link_to "", speech_path(speech), data: { confirm: "Delete speech?" }, method: :delete, class: "far fa-trash-alt text-white speech-icon" %>
+      <% end %>
       <div class="d-flex justify-content-start align-items-center">
         <% if speech.user.photo.attached? %>
           <%= cl_image_tag speech.user.photo.key, class: "avatar-large" %>
         <% end %>
-        <p style="margin-left: 10px;margin-top:10px;">Speech by <%= speech.user.first_name%> </p>
+        <p id="speech-title">
+          <% if speech.title %>
+            "<%= speech.title %>" by <%= speech.user.first_name%>
+          <% else %>
+            <%= speech.user.first_name%>'s response to "<%= speech.training.speeches.first.title %>"
+          <% end %>
+        </p>
       </div>
       <div class="d-flex align-items-center my-4">
         <audio controls src="https://res.cloudinary.com/dqco8z2dj/video/upload/<%= Rails.env %>/<%= speech.audio.key %>.webm"> </audio>
@@ -23,10 +32,17 @@
       <% if current_user == speech.user && !current_user.teacher && !speech.paid_order %>
         <%= form_tag orders_path do %>
           <%= hidden_field_tag 'speech_id', speech.id %>
-          <%= submit_tag 'Make payment', class: "btn btn-primary", style: "color:white;", id: "pay" %>
+          <%= submit_tag 'Make payment', class: "btn btn-primary text-white", id: "pay" %>
         <% end %>
       <% elsif current_user == speech.user && !current_user.teacher && speech.paid_order %>
         <h6><%= speech.total_price %>円</h6>
+      <% elsif current_user.teacher && !speech.paid_order && !speech.user.teacher && !speech.corrected_by_teacher? %>
+        <% if current_user.teacher? && speech.paid_order %>
+          <form action="/speeches/new">
+            <input class="d-none" type="text" name="training" value=<%= @speech.training.id %>>
+            <button class="btn btn-primary rounded text-white" type="submit">Correct speech</button>
+          </form>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -34,7 +50,7 @@
     <div class="shadow white">
       <h5 class="fw-bold">Transcript
         <% if current_user == speech.user %>
-          <i class="fas fa-pencil-alt text-dark" data-bs-toggle="modal" data-bs-target="#speech_transcript_<%=speech.id%>"></i>
+          <i class="fas fa-pencil-alt text-dark speech-icon" data-bs-toggle="modal" data-bs-target="#speech_transcript_<%=speech.id%>"></i>
         <% end %>
       </h5>
       <%= render 'speeches/edit_modal', id: "speech_transcript_#{speech.id}", speech: speech, transcript: true  %>
@@ -45,7 +61,7 @@
     <div class="shadow light ">
       <h5 class="fw-bold">Notes
         <% if current_user == speech.user %>
-          <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#speech_notes_<%=speech.id%>"></i>
+          <i class="fas fa-pencil-alt speech-icon" data-bs-toggle="modal" data-bs-target="#speech_notes_<%=speech.id%>"></i>
         <% end %>
       </h5>
       <%= render 'speeches/edit_modal', id: "speech_notes_#{speech.id}", speech: speech, transcript: false  %>
