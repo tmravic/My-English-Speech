@@ -7,12 +7,19 @@ export default function navbar() {
       x: window.pageXOffset,
       y: window.pageYOffset,
     }
-    if (scrollObject.y > 10){
-     nav.classList.add('active')
-     console.log("adding class")
+
+    if (scrollObject.y > 10) {
+      if (!nav.classList.contains('active')) {
+        nav.classList.add('active')
+        console.log("adding class")
+        console.log("nav element", nav)
+      }
     } else {
-      nav.classList.remove('active')
-    console.log("removing class")
+      if (nav.classList.contains('active')) {
+        nav.classList.remove('active')
+        console.log("removing class")
+        console.log("nav element", nav)
+      }
     }
   }
   window.onscroll = getScrollPosition
