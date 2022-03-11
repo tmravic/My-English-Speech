@@ -4,8 +4,9 @@
   </div>
 </div>
 <div class="container-payments d-flex position-relative text-center">
-  <div class="row py-2 mt-2">
+  <div class="row py-2 mt-3">
     <div class="col">
+    <%= image_tag "credit-card.png"%>
       <div class="row card_box text-center" >
         <p>Purchase of <strong><%= @order.speech.seconds %></strong> seconds of speech time for <strong><%= @order.speech.total_price %>円</strong> for the speech.</p>
         <p>Speech's title: <%= @order.speech.title %></p>

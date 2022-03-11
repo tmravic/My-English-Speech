@@ -1,20 +1,22 @@
-.container-payments{
+.container-payments {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   border-radius: 8px;
   -webkit-box-flex: 1;
   flex-grow: 1;
-  height: 150px;
-  }
+  height: 180px;
+}
 
-
-.container-payments{
-  .row{
+.container-payments {
+  .row {
     background-color: white;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     width: 600px;
     height: 80px;
+  }
+  .col img {
+    width: 60px;
   }
 }
