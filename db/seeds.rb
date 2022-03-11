@@ -24,7 +24,7 @@ u.save!
 teachers << u
 
 puts "user created"
-u = User.create!(first_name: "Taylor", last_name: "Mravic", password: "taylor", email: "taylor@myenglishspeech.com", teacher: true)
+u = User.create!(first_name: "Taylor", last_name: "Mravic", password: "33Taylor!", email: "taylor@myenglishspeech.com", teacher: true)
 file = URI.open("https://res.cloudinary.com/dqco8z2dj/image/upload/v1645341590/me7_fec2w3.jpg")
 u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
@@ -50,7 +50,7 @@ u.save!
 teachers << u
 
 puts "user created"
-u = User.create!(first_name: "Risako", last_name: "Nagai", password: "risako", email: "risako@renttopetto.com", teacher: false)
+u = User.create!(first_name: "Risako", last_name: "Nagai", password: "33Risako!", email: "risako@renttopetto.com", teacher: false)
 file = URI.open("https://res.cloudinary.com/dqco8z2dj/image/upload/v1646625382/risako_gzxokm.jpg")
 u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
 u.save!
