@@ -1,4 +1,4 @@
-<div class="home-page">
+<div class="home-page" data-controller="hello">
   <%# Banner %>
   <div class="home-header">
     <div class="container">
@@ -8,17 +8,17 @@
             <h1>MyEnglishSpeech</h1>
             <h2>Your words, perfected</h2>
             <%= link_to "Record a speech", new_speech_path, class: "btn btn-full" %>
-            <a href="#" class="btn btn-ghost">About this service</a>
+            <button class="btn btn-ghost" data-hello-target="button" data-action="click->hello#scrollDown">About this service</button>
           </div>
         </div>
       </div>
     </div>
   </div>
   <%# What is MyEnglishSpeech? %>
-  <section id="explanation">
+  <section id="explanation" data-hello-target="title">
     <div class="container">
-      <div class="row justify-content-center" id="overview">
-        <h2>More than just translations</h2>
+      <div class="row justify-content-center" id="overview" >
+        <h2 >More than just translations</h2>
         <div class="row justify-content-center">
           <div class="col-sm-10">
             <p class="long-copy">

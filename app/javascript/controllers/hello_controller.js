@@ -10,9 +10,15 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "output" ]
+  static targets = [ "button", "title" ]
 
   connect() {
-    this.outputTarget.textContent = 'Hello, Stimulus!'
+    console.log("Hello controller standing by")
+  }
+
+  scrollDown() {
+    console.log("I got clicked")
+    this.titleTarget.classList.add("title-top-margin")
+    this.titleTarget.scrollIntoView();
   }
 }
