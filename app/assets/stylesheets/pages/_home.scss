@@ -34,6 +34,7 @@
     word-spacing: 2px;
     text-align: center;
     margin-bottom: 30px;
+    margin-top: 40px;
     letter-spacing: 1px;
     color: #fff;
     text-transform: uppercase;
@@ -79,8 +80,7 @@
     background-color: #576092;
   }
 
-  .btn-ghost:link,
-  .btn-ghost:visited {
+  .btn-ghost {
     border: 2px solid $official-blue;
     color: #fff;
   }
@@ -219,3 +219,6 @@
 
 }
 
+.title-top-margin {
+ padding-top: 50px;
+}
