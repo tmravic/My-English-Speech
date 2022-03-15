@@ -7,4 +7,4 @@
 ------------------
 <h3>Setup</h3>
 <p>Install gems</p>
-`bundle install`
+```bundle install```
