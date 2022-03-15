@@ -9,3 +9,44 @@
 ```
 bundle install
 ```
+##### Install JS packages
+```
+yarn install
+```
+
+### ENV variables
+##### Create `.env`
+```
+touch .env
+```
+##### Inside `.env`, set these variables
+```
+CLOUDINARY_URL=cloudinary://your_key
+STRIPE_PUBLISHABLE_KEY=your_key
+STRIPE_SECRET_KEY=sk_test_your_key
+STRIPE_WEBHOOK_SECRET_KEY=your_key
+
+```
+
+### DB Setup
+```
+rails db:create
+rails db:migrate
+rails db:seed
+
+```
+
+### Run your server
+
+```
+rails s
+
+```
+
+### Tools
+
+
+### Our Team
+* Taylor
+* Andre
+* Risako
