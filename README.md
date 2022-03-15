@@ -43,10 +43,10 @@ rails s
 
 ```
 
-### Tools
+## Tools
 
 
-### Our Team
-* Taylor
-* Andre
-* Risako
+## Our Team
+[Andrei Mori](https://github.com/andreicodenz)
+[Risako Nagai](https://github.com/Risako03)
+[Taylor Mravic](https://github.com/tmravic)
