@@ -47,6 +47,6 @@ rails s
 
 
 ## Our Team
-[Andrei Mori](https://github.com/andreicodenz)
-[Risako Nagai](https://github.com/Risako03)
-[Taylor Mravic](https://github.com/tmravic)
+* [Andrei Mori](https://github.com/andreicodenz)
+* [Risako Nagai](https://github.com/Risako03)
+* [Taylor Mravic](https://github.com/tmravic)
