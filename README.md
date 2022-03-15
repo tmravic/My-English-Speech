@@ -3,7 +3,8 @@
 
 ![student speech](https://user-images.githubusercontent.com/59186645/158356407-e58ce9e5-99a7-4015-8593-820af33f8523.png)
 
-### Installing locally :rocket:
+### Installing locally :computer:
 ------------------
 <h3>Setup</h3>
 <p>Install gems</p>
+`bundle install`
