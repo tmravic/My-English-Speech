@@ -7,4 +7,10 @@
 ------------------
 <h3>Setup</h3>
 <p>Install gems</p>
-```bundle install```
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
