@@ -4,13 +4,6 @@
 ![student speech](https://user-images.githubusercontent.com/59186645/158356407-e58ce9e5-99a7-4015-8593-820af33f8523.png)
 
 ### Installing locally :computer:
-------------------
-<h3>Setup</h3>
-<p>Install gems</p>
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
-```
+`lots`of`backticks`
+
+``i``wonder``how``this``will``be``parsed``
