@@ -6,4 +6,4 @@
 ## Installing locally :computer:
 ### Setup
 ##### Install gems
-`bundle install`
+```bundle install```
