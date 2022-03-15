@@ -25,7 +25,6 @@ CLOUDINARY_URL=cloudinary://your_key
 STRIPE_PUBLISHABLE_KEY=your_key
 STRIPE_SECRET_KEY=sk_test_your_key
 STRIPE_WEBHOOK_SECRET_KEY=your_key
-
 ```
 
 ### DB Setup
@@ -33,17 +32,13 @@ STRIPE_WEBHOOK_SECRET_KEY=your_key
 rails db:create
 rails db:migrate
 rails db:seed
-
 ```
 
 ### Run your server
 
 ```
 rails s
-
 ```
-
-## Tools
 
 
 ## Our Team
