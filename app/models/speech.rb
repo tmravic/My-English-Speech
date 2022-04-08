@@ -36,7 +36,10 @@ class Speech < ApplicationRecord
       "Awaiting payment"
     end
   end
-
+  # Let's rename these to be more clear
+  # State machines
+  # Dependency injection
+  # Polymorphism - create classes that inherit from Speech
   def status_color
     if corrected_by_teacher?
       "recorded"
